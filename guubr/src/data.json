@@ -1,0 +1,17 @@
+    {
+        "profileName": "Oleg",
+        "profileImage": "https://yt3.ggpht.com/b9ewc7GUx0fGMqqBGMVSXpX_iDlMTGhign9JTmcOK7sAyadT4EzjkckS7qaEArR8aDqPf_L4Hg=s900-c-k-c0x00ffffff-no-rj",
+        "firstName": "Oleg",
+        "lastName": "Astakhov",
+        "occupation": "Dance Teacher",
+        "hourlyRate": 115,
+        "nationality": "ukraine",
+        "ageGroup" : "30-40",
+        "maritalStatus":"not specified",
+        "children": "none",
+        "gender": "male",
+        "languages":["English", "Russian", "Polish", "Ukrainian"],
+        "education": "Master Degree Management & Marketing, Psychology",
+        "city": "Los Angeles",
+        "country": "USA"
+    }

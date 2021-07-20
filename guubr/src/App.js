@@ -1,17 +1,12 @@
-import './App.css';
-import './components/FaqPage/FaqPage.css';
-import './components/ProfilePage/ProfilePage.module.css';
-import FaqPage from './components/FaqPage/FaqPage';
-import ProfilePage from './components/ProfilePage/ProfilePage';
+import React from "react";
+import "./App.css";
+import Home from './pages/Home';
 
 function App() {
   return (
-    <div className="App">
-      <div className="FaqPage">
-       <FaqPage/>
-      </div>
+    <div>
+      <Home />
     </div>
   );
-}
-
-export default App;
+ }
+ export default App;

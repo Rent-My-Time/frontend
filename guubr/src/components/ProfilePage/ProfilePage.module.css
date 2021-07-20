@@ -12,7 +12,6 @@ button{
     height: 42px;
     width:100%;
 }
-
 button:hover {
     background-color: rgba(0, 0, 0, 0.05);
 }

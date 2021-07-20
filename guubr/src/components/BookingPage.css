@@ -1,0 +1,94 @@
+.BookingPage__Container {
+  width: 100%;
+  height: 100%;
+}
+
+.BookingPage__Header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 3%;
+}
+
+.BookingPage__Logo {
+  width: 100px;
+  height: 100px;
+  margin: 0 2%;
+}
+
+.BookingPage__Main {
+  display: flex;
+  margin: 0 auto;
+  width: 50%;
+  height: auto;
+  background: #ffffff;
+  box-shadow: 5px -5px 10px rgba(217, 217, 217, 0.2),
+    -5px -5px 10px rgba(255, 255, 255, 0.9),
+    5px 5px 13px rgba(217, 217, 217, 0.9), 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  padding: 4% 2%;
+}
+
+form {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.BookingPage__Form {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.BookingPage__Large__Input {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.BookingPage__Column {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  flex: 0.5;
+  margin: 0.5% 2%;
+}
+
+.BookingPage__Column__Short {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  flex: 0.2;
+  margin: 0.5% 2%;
+}
+.BookingPage__Column__Three {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+  flex: 0.3;
+  margin: 2% 0;
+}
+
+.BookingPage__Column__One {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  flex: 1;
+  margin: 0.5% 2%;
+}
+
+.BookingPage__Input {
+  width: 100%;
+  height: 42px;
+  background: #ffffff;
+  box-shadow: inset -1px 1px 2px rgba(204, 204, 204, 0.2),
+    inset 1px -1px 2px rgba(204, 204, 204, 0.2),
+    inset -1px -1px 2px rgba(255, 255, 255, 0.9),
+    inset 1px 1px 3px rgba(204, 204, 204, 0.9);
+  border: none;
+  border-radius: 10px;
+}

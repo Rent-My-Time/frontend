@@ -117,7 +117,6 @@ const More = styled.div`
   img {
     width: 30px;
     height: 30px;
-    margin-top: -15px;
   }
 `;
 

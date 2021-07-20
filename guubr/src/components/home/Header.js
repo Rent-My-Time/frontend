@@ -1,13 +1,18 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
     <Container>
       <img src="/logo.png" alt="logo" />
       <div>
-        <h2>Log In</h2>
-        <h2 className="signup">Sign Up</h2>
+        <Link to="/signup">
+          <h2>Log In</h2>
+        </Link>
+        <Link to="/signup">
+          <h2 className="signup">Sign Up</h2>
+        </Link>
       </div>
     </Container>
   );

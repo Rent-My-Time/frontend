@@ -13,6 +13,12 @@ function Header() {
         <Link to="/signup">
           <h2 className="signup">Sign Up</h2>
         </Link>
+        <Link to="/faq">
+          <h2>FAQ</h2>
+        </Link>
+        <Link to="/booking">
+          <h2>Booking</h2>
+        </Link>
       </div>
     </Container>
   );

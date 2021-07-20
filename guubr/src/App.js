@@ -1,10 +1,10 @@
 import React from "react";
 import Home from "./pages/Home";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import ProfilePage from "./components/ProfilePage/ProfilePage";
-import AccountBox from "./components/userAccountBox/index";
-import FaqPage from "./components/FaqPage/FaqPage";
-import BookingPage from "./components/BookingPage";
+import ProfilePage from "./pages/ProfilePage/ProfilePage";
+import AccountBox from "./pages/userAccountBox/index";
+import FaqPage from "./pages/FaqPage/FaqPage";
+import BookingPage from "./pages/BookingPage";
 
 function App() {
   return (

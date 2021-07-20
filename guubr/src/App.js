@@ -1,35 +1,15 @@
 
-
-import styled from "styled-components";
- import AccountBox  from "./components/userAccountBox";
- 
-
-
-
+import React from "react";
+import "./App.css";
+import Home from './pages/Home';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">Guubr
-          <AppContainer>
-
-             <AccountBox />
-
-          </AppContainer>
-      </header>
+    <div>
+      <Home />
     </div>
   );
 
   }
-
   export default App;
 
-  const AppContainer= styled.div`
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-`

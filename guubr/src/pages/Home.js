@@ -1,10 +1,11 @@
-import React from "react";
-import Header from "../components/home/Header";
-import Profile from "../components/home/Profile";
-import Skill from "../components/home/Skill";
-import Search from "../components/home/Search";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
+import React from 'react';
+import Header from '../components/Header';
+import Profile from '../components/home/Profile';
+import Skill from '../components/home/Skill';
+import Search from '../components/home/Search';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import Footer from '../components/Footer';
 
 function Home() {
   return (
@@ -24,11 +25,12 @@ function Home() {
         <Skill>Self Development</Skill>
       </Skills>
       <More>
-        <p>More</p> <img src="/images/arrow.svg" alt="arrow icon" />
+        <p>More</p>
+        <img src="/images/arrow.svg" alt="arrow icon" />
       </More>
       <Discover>Discover Diverse Expertise</Discover>
       <Profiles>
-        <Link to={`/profile-page`}>
+        <Link to={`/profile-page`} style={{ textDecoration: 'none' }}>
           <Profile
             name="Elina"
             experties="Coach"
@@ -68,8 +70,10 @@ function Home() {
         />
       </Profiles>
       <More>
-        <p>More</p> <img src="/images/arrow.svg" alt="arrow icon" />
+        <p>More</p>
+        <img src="/images/arrow.svg" alt="arrow icon" />
       </More>
+      <Footer />
     </Container>
   );
 }
@@ -110,8 +114,9 @@ const More = styled.div`
   cursor: pointer;
 
   p {
+    margin-bottom: 7px;
     letter-spacing: 4px;
-    color: grey;
+    color: #474747;
   }
 
   img {

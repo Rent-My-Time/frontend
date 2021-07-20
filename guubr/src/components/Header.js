@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
+import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 function Header() {
   return (
@@ -12,9 +12,6 @@ function Header() {
         </Link>
         <Link to="/signup">
           <h2 className="signup">Sign Up</h2>
-        </Link>
-        <Link to="/faq">
-          <h2>FAQ</h2>
         </Link>
         <Link to="/booking">
           <h2>Booking</h2>
@@ -39,7 +36,7 @@ const Container = styled.nav`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-width: 200px;
+    min-width: 220px;
 
     @media (max-width: 460px) {
       flex-direction: column;
@@ -51,6 +48,9 @@ const Container = styled.nav`
     font-weight: 200;
     font-size: 16px;
     cursor: pointer;
+    text-decoration: underline;
+    text-decoration-color: white;
+
     &:hover {
       border-bottom: 2px solid black;
     }

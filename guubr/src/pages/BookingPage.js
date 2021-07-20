@@ -1,6 +1,7 @@
-import React from "react";
-import { ReactComponent as Guubr } from "../assets/GuuBr.svg";
-import "./BookingPage.css";
+import React from 'react';
+import { ReactComponent as Guubr } from '../assets/GuuBr.svg';
+import './BookingPage.css';
+import Footer from '../components/Footer';
 
 function BookingPage() {
   return (
@@ -116,6 +117,7 @@ function BookingPage() {
           <button>Submit</button>
         </form>
       </div>
+      <Footer />
     </div>
   );
 }

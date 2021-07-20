@@ -26,6 +26,7 @@ const Container = styled.div`
   background: #f7f7f7;
   border: 1px solid lightgrey;
   box-shadow: 0px 69.27113342285156px 50.798831939697266px 0px #0000000e;
+  cursor: pointer;
 
   img {
     width: 240px;
@@ -39,11 +40,17 @@ const Info = styled.div`
   justify-content: space-between;
   width: 240px;
   font-family: Helvetica, Arial, sans-serif;
+  outline: none;
+  color: black;
 
   div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
     margin-bottom: 10px;
 
-    div {
+    div:nth-child(2) {
+      color: #a30815;
     }
   }
 `;

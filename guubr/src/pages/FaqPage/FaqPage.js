@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 /* import { createGlobalStyle } from 'styled-components'; */
-import textData from "./data.faq.json"
+import textData from './data.faq.json';
 
 function FaqPage() {
-  console.log("FaqPage: ");
-  console.log("  ");
-  console.log("textdata: ", textData[0]);
+  console.log('FaqPage: ');
+  console.log('  ');
+  console.log('textdata: ', textData[0]);
   return (
     <div className="faq">
       <h1>FAQ Page</h1>
@@ -35,5 +35,5 @@ const NeumorphBox = () => {
     <div className="neumorphBox">
       <h2> NEUMORPHIC BOX </h2>
     </div>
-  )
-}
+  );
+};

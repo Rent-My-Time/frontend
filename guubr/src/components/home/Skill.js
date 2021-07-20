@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 function Skill({ children }) {
   return <Button>{children}</Button>;
@@ -7,8 +7,10 @@ function Skill({ children }) {
 
 const Button = styled.button`
   min-width: 140px;
+  max-width: 200px;
   height: 42px;
   border: 1px solid lightgrey;
+  border-radius: 0;
   margin: 10px;
   padding: 0 25px;
   font-family: Helvetica, Arial, sans-serif;

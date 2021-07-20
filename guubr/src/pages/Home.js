@@ -1,10 +1,10 @@
-import Header from '../components/home/Header';
-import Profile from '../components/home/Profile';
-import Skill from '../components/home/Skill';
-import Search from '../components/home/Search';
-import styled from 'styled-components';
-
-import React from 'react';
+import React from "react";
+import Header from "../components/home/Header";
+import Profile from "../components/home/Profile";
+import Skill from "../components/home/Skill";
+import Search from "../components/home/Search";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 function Home() {
   return (
@@ -28,12 +28,14 @@ function Home() {
       </More>
       <Discover>Discover Diverse Expertise</Discover>
       <Profiles>
-        <Profile
-          name="Elina"
-          experties="Coach"
-          rate="199"
-          photo="/images/profile2.png"
-        />
+        <Link to={`/profile-page`}>
+          <Profile
+            name="Elina"
+            experties="Coach"
+            rate="199"
+            photo="/images/profile2.png"
+          />
+        </Link>
         <Profile
           name="Elina"
           experties="Coach"

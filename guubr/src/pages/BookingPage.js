@@ -1,7 +1,10 @@
-import React from 'react';
-import { ReactComponent as Guubr } from '../assets/GuuBr.svg';
-import './BookingPage.css';
-import Footer from '../components/Footer';
+import React from "react";
+import { ReactComponent as Guubr } from "../assets/GuuBr.svg";
+import "./BookingPage.css";
+import Footer from "../components/Footer";
+import PrimaryButton from "../components/reusableComponents/PrimaryButton.js";
+import PrimaryInput from "../components/reusableComponents/PrimaryInput.js";
+import PrimaryTextArea from "../components/reusableComponents/PrimaryTextArea.js";
 
 function BookingPage() {
   return (
@@ -15,106 +18,60 @@ function BookingPage() {
           <div className="BookingPage__Form">
             <div className="BookingPage__Column">
               <label htmlFor="firstName">First Name</label>
-              <input
-                type="text"
-                name="firstName"
-                className="BookingPage__Input"
-                placeholder="First Name"
-              />
+              <PrimaryInput type="text" name="firstName" />
             </div>
             <div className="BookingPage__Column">
               <label htmlFor="lastName">Last Name</label>
-              <input
-                type="text"
-                name="lastName"
-                className="BookingPage__Input"
-                placeholder="Last Name"
-              />
+              <PrimaryInput type="text" name="lastName" />
             </div>
           </div>
           <div className="BookingPage__Form">
             <div className="BookingPage__Column">
               <label htmlFor="email">Email</label>
-              <input
-                type="text"
-                name="email"
-                className="BookingPage__Input"
-                placeholder="Enter your email"
-              />
+              <PrimaryInput type="text" name="email" />
             </div>
             <div className="BookingPage__Column">
               <label htmlFor="phone">Phone</label>
-              <input
-                type="text"
-                name="phone"
-                className="BookingPage__Input"
-                placeholder="Enter your phone number"
-              />
+              <PrimaryInput type="text" name="phone" />
             </div>
           </div>
           <div className="BookingPage__Form">
             <div className="BookingPage__Column__Three">
               <label htmlFor="date">Date</label>
-              <input
-                type="text"
-                className="BookingPage__Input"
-                name="date"
-                placeholder="Pick A Date"
-              />
+              <PrimaryInput type="text" name="date" />
             </div>
             <div className="BookingPage__Column__Three">
               <label htmlFor="time">Select A Time</label>
-              <input
-                type="text"
-                className="BookingPage__Input"
-                name="time"
-                placeholder="Select A Time"
-              />
+              <PrimaryInput type="text" name="time" />
             </div>
             <div className="BookingPage__Column__Three">
               <label htmlFor="hours">Appointment Length</label>
-              <input
-                type="text"
-                className="BookingPage__Input"
-                name="hours"
-                placeholder="How long?"
-              />
+              <PrimaryInput type="text" name="hours" />
             </div>
           </div>
           <div className="BookingPage__Form">
             <div className="BookingPage__Column__One">
               <label htmlFor="jobRequest">Job Request</label>
-              <input
-                type="text"
-                name="jobRequest"
-                className="BookingPage__Input"
-                placeholder="Click the dropdown to see job requests"
-              />
+              <PrimaryInput type="text" name="jobRequest" />
             </div>
           </div>
           <div className="BookingPage__Form">
             <div className="BookingPage__Column__One">
               <label htmlFor="availabilityType">Availability Type</label>
-              <input
-                type="text"
-                name="availabilityType"
-                className="BookingPage__Input"
-                placeholder="Click the dropdown to see availability types"
-              />
+              <PrimaryInput type="text" name="availabilityType" />
             </div>
           </div>
           <div className="BookingPage__Form">
             <div className="BookingPage__Column__One">
               <label htmlFor="comments">Comments</label>
-              <textarea
+              <PrimaryTextArea
                 type="text"
                 name="comments"
-                className="BookingPage__Input Comment__Section"
                 placeholder="Add your comments here"
               />
             </div>
           </div>
-          <button>Submit</button>
+          <PrimaryButton>Submit</PrimaryButton>
         </form>
       </div>
       <Footer />

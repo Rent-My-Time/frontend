@@ -11,6 +11,10 @@ function Faq(props) {
   }
 
 const BoxFaq = styled.div`
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+    gap: 4px;
     border: 1px solid lightgrey;
     border-radius: 0;
     margin: 10px;

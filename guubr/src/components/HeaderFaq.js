@@ -6,7 +6,7 @@ function HeaderFaq() {
     return(
         <ContainerHeaderFaq>
              <Link to="/">
-                <h2>Home</h2>
+                <p>HOME</p>
             </Link>
         </ContainerHeaderFaq>
 

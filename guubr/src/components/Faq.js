@@ -5,7 +5,7 @@ function Faq(props) {
     return (
         <BoxFaq>
             <h1>{props.title}</h1>
-            <h2>{props.text}</h2>
+            <p>{props.text}</p>
         </BoxFaq>
     )
   }
@@ -18,7 +18,7 @@ const BoxFaq = styled.div`
     font-family: Helvetica, Arial, sans-serif;
     letter-spacing: 2px;
     box-shadow: 8.71957015991211px 8.71957015991211px 17.43914031982422px 0px
-      #aeaec066;
+    #aeaec066;
     background: white;
     color: black;
 `;

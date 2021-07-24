@@ -125,7 +125,7 @@ const GuubrTagLine = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  font-size: 14px;
+  font-size: 12px;
   letter-spacing: 2px;
   font-weight: 100;
   margin: 10px 10px 0px 10px;

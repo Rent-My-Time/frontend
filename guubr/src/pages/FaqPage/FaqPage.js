@@ -4,6 +4,7 @@ import { ReactComponent as Guubr } from "../../assets/GuuBr.svg";
 import styled from 'styled-components';
 import HeaderFaq from '../../components/HeaderFaq';
 import Footer from '../../components/Footer';
+import IconFooter from '../../components/IconFooter';
 import Faq from '../../components/Faq';
 import textData from './data.faq.json';
 
@@ -76,8 +77,8 @@ function FaqPage() {
           Gianna • Joshua • Melissa • Nathaniel • Nina • Robin
         </div>
       </GuubrTagLine>
-
       <Footer />
+      <IconFooter />
     </ContainerFaq>
   );
 }

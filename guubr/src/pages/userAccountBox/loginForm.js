@@ -1,24 +1,44 @@
-import React from "react";
+/** @format */
+
+import React, { useContext } from "react";
 import {
-  BoxContainer,
-  FormContainer,
-  Input,
-  MutedLink,
-  SubmitButton,
+    BoldLink,
+	BoxContainer,
+	FormContainer,
+	Input,
+	MutedLink,
+	SubmitButton,
 } from "./common";
 import { Marginer } from "../marginer";
+import  {AccountContext}  from "./accountContext";
+
+//guubr/src/pages/userAccountBox/accountContext.js
 
 export default function LoginForm(props) {
-  return (
-    <BoxContainer>
-      <FormContainer>
-        <Input type="email" placeholder="Email" />
-        <Input type="password" placeholder="Password" />
-        <Marginer direction="vertical" margin={10} />
-        <MutedLink href="#">Forget your password?</MutedLink>
-        <Marginer direction="vertical" margin="1em" />
-        <SubmitButton type="submit">SignIn</SubmitButton>
-      </FormContainer>
-    </BoxContainer>
-  );
+
+	const { switchToSignUp } = useContext(AccountContext);
+
+	return (
+		<BoxContainer>
+			<FormContainer>
+				<Input type="email" placeholder="Email" />
+				<Input type="password" placeholder="Password" />
+			</FormContainer>
+			<Marginer direction="vertical" margin={10} />
+			<MutedLink href="#"> Forgot your password?
+				<BoldLink href="#"  onClick={switchToSignUp}>
+					??
+				</BoldLink>
+			</MutedLink>
+			<Marginer direction="vertical" margin="1.6em" />
+			<SubmitButton type="submit"> Continue </SubmitButton>
+			<SubmitButton type="submit"> Google Sign-in </SubmitButton>
+			<Marginer direction="vertical" margin="1em" />
+			<MutedLink href="#"> Don't have an account?{" "}
+				<BoldLink href="#"  onClick={switchToSignUp}>
+					Sign Up
+				</BoldLink>
+		 	 </MutedLink>
+		</BoxContainer>
+	);
 }

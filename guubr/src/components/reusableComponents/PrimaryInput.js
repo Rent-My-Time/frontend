@@ -20,7 +20,7 @@ const StyledInput = styled.input`
   margin: 4px 0;
   padding: 10px 0px 10px 10px;
   letter-spacing: 2px;
-
+  width:100%;
   ::placeholder {
     color: #a6a6a6;
   }

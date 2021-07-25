@@ -6,6 +6,7 @@ import Search from '../components/home/Search';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
+import IconFooter from '../components/IconFooter';
 
 function Home() {
   return (
@@ -74,6 +75,7 @@ function Home() {
         <img src="/images/arrow.svg" alt="arrow icon" />
       </More>
       <Footer />
+      <IconFooter />
     </Container>
   );
 }

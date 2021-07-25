@@ -31,7 +31,7 @@ function Home() {
       </More>
       <Discover>Discover Diverse Expertise</Discover>
       <Profiles>
-        <Link to={`/profile-page`} style={{ textDecoration: 'none' }}>
+        <Link to={`/my-info`} style={{ textDecoration: 'none' }}>
           <Profile
             name="Elina"
             experties="Coach"

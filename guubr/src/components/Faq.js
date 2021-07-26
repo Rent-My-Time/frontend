@@ -4,7 +4,7 @@ import styled from "styled-components";
 function Faq(props) {
     return (
         <BoxFaq>
-            <h1>{props.title}</h1>
+            <h1 style={{color: props.titleColor}}>{props.title}</h1>
             <p>{props.text}</p>
         </BoxFaq>
     )

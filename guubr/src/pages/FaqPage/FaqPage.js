@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './FaqPage.css';
 import { ReactComponent as Guubr } from "../../assets/GuuBr.svg";
 import styled from 'styled-components';
@@ -11,22 +11,21 @@ import textData from './data.faq.json';
 function FaqPage() {
   console.log('FaqPage: ');
   console.log('textData: ', textData);
+
+  useEffect(() => {
+    window.scrollTo(0,0)
+  }, []);
+
   return (
     <ContainerFaq>
       <HeaderFaq />
       <HeaderTextFaq>
         <Guubr className="Guubr__Logo" />
         <div>
-        • Find A Specialist • 
-        </div>
-        <div>
         • Rent-My-Time • 
         </div>
         <div>
-        • Meet for coffee, conversation, interviews, advice, lessons  • 
-        </div>
-        <div>
-        Book a: teacher • lecturer • security • model • actor • dancer • author • gardener • artist • tutor • nanny • decorator • cook • pilot • golf partner • ski buddy • dog walker • pet sitter
+        • Find A Specialist • 
         </div>
       </HeaderTextFaq>
       
@@ -36,35 +35,54 @@ function FaqPage() {
 
       <Faqs>
         <Faq
+          title="WHAT IS GUUBR"
+          titleColor="var(--guubr-letter1)"
+          text="A place to make CONNECTIONS. Offer your SIDE-GIG. Get PAID. Get TOGETHER."
+        />
+        <Faq
+          title="WHY TO MEET"
+          titleColor="var(--guubr-letter2)"
+          text="• Meet for a: coffee, conversation, interview, lesson • 
+          Book a: teacher • lecturer • security team • model • tour guide • actor • dancer • author • gardener • artist • tutor • nanny • decorator • cook • pilot • golf partner • ski buddy • dog walker • pet sitter • etc."
+        />
+        <Faq
           title="JOIN"
-          text="Membership is Free! Simply fill out a profile & list your specialist fields."
+          titleColor="var(--guubr-letter3)"
+          text="Membership is Free! Simply fill out a profile and list your skills & expertise & price."
         />
         <Faq
           title="FIND"
-          text="Find a specialist:  Search by specialist field. [phase II: chat]"
+          titleColor="var(--guubr-letter4)"
+          text="Find a specialist:  Search by specialist field. [phase II: chat with them]"
         />
         <Faq
           title="REQUEST BOOKING"
+          titleColor="var(--guubr-letter5)"
           text="Select a time & date / Detail what you would like."
         />
         <Faq
           title="BOOKED"
-          text="Negotiate the time. / Confirm it."
+          titleColor="var(--guubr-letter1)"
+          text="Negotiate the time & date / Confirm it."
         />
         <Faq
           title="MEET"
-          text="Meet up. [phase II:  checkin/checkout]"
+          titleColor="var(--guubr-letter2)"
+          text="Meet up. [phase II:  checkin/checkout to the meeting]"
         />          
         <Faq
           title="REVIEW"
-          text="Client / Specialist post meeting review. (required)"
+          titleColor="var(--guubr-letter3)"
+          text="Client / Specialist post meeting reviews. (Required before booking future meetings.)"
         />
         <Faq
           title="SUPPORT"
-          text="Contact support@guubr.com for issues & questions."
+          titleColor="var(--guubr-letter4)"
+          text="Contact support@guubr.com for questions & issues."
         />
         <Faq
           title="ABOUT"
+          titleColor="var(--guubr-letter5)"
           text="GuuBr is the brought to you by Oleg Astakhov & the GuuBr Group."
         />        
       </Faqs>

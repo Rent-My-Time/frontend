@@ -11,6 +11,9 @@
 # production
 /build
 
+# hide firebase credentials in .env
+.env
+
 # misc
 .DS_Store
 .env.local

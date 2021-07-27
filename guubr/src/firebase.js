@@ -4,15 +4,23 @@ import "firebase/firestore";
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyBitqH5jYQBr99o-Xjz4oKU5HCDR8kJ18I",
-  authDomain: "guubr-443c8.firebaseapp.com",
-  projectId: "guubr-443c8",
-  storageBucket: "guubr-443c8.appspot.com",
-  messagingSenderId: "729693676265",
-  appId: "1:729693676265:web:ca989fc19c642743f84678",
-  measurementId: "G-S8YD0Q02JW",
+  apiKey: process.env.REACT_APP_APIKEY,
+  authDomain: process.env.REACT_APP_AUTHDOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSENGER_SENDING_ID,
+  appId: process.env.REACT_APP_ID,
+  measurementId: process.env.REACT_APP_MEASUREMENT_ID
 };
 
-firebase.initializeApp(firebaseConfig);
+/*robin added: solves if firebase is intializing more than once */
+/* firebase was saying: Firebase: Firebase App named '[DEFAULT]' already exists (app/duplicate-app). */
+
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}else {
+  firebase.app(); // if already initialized, use that one
+}
+
 export const auth = firebase.auth();
 export default firebase;

@@ -6,6 +6,8 @@ html {
   --guubr-letter3: #1C37C2;
   --guubr-letter4: #2D302F;
   --guubr-letter5: #BADA54;
+  --guubr-almost-white: #F8F8Fb;
+  --guubr-almost-gray: #F4F4F4;
 }
 body {
   width: 100%;

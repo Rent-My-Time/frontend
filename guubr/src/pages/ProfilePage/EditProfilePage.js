@@ -7,7 +7,7 @@ import EditContactDetails from './EditContactDetails'
 import EditSpecialistFields from './EditSpecialistFields'
 import EditAvailability from './EditAvailability'
 function EditProfilePage() {
-    const [formInfo, setformInfo] = useState([])
+    const [formInfo, setformInfo] = useState(data)
     useEffect(() => {
         setformInfo(data)
     }, [])

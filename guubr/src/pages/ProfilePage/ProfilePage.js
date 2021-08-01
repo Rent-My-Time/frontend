@@ -19,7 +19,7 @@ function ProfilePage() {
                 <div className={styles['profile-page']}>
                     <div className={styles['main-container']}>
                         <div className={styles['navigation-container']}>
-                            <Link activeClassName="selected" to="/my-info" className={styles['nav-link']}><h2>Personal<br />Details</h2></Link>
+                            <Link to="/my-info" className={styles['nav-link']}><h2>Personal<br />Details</h2></Link>
                             <Link to="/my-contacts" className={styles['nav-link']}><h2>Contact<br />Details</h2></Link>
                             <Link to="/my-skills" className={styles['nav-link']}><h2>Specialist<br />Fields</h2></Link>
                             <Link to="/availability" className={styles['nav-link']}><h2>Availability</h2></Link>

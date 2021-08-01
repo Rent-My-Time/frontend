@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-function SecondaryButton({ children }) {
-  return <Button>{children}</Button>;
+function SecondaryButton({ children,  onClick, style  }) {
+  return <Button onClick={onClick} style={style}>{children}</Button>;
 }
 
 const Button = styled.button`

@@ -37,12 +37,11 @@
         },
         "networking":true,
         "friends": true,
-        "other" : "career advising and casual conversation",
+        "other" : "You can also reach me by Facebook messenger.",
         "contactMethods": {
             "phone": true,
             "email": true,
             "zoom": false,
-            "office": false,
-            "other": "You can also reach me by Facebook messenger."
+            "office": false
         }
     }

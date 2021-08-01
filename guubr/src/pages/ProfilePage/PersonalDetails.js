@@ -71,7 +71,7 @@ function PersonalDetails(props) {
                     rate={props.formInfo.hourlyRate}
                     photo={props.formInfo.profileImage}
                 />
-                <Link to="/edit-profile" style={{ width: '100%', marginBottom: "16px" }}><SecondaryButton>Edit Profile</SecondaryButton></Link>
+                <Link to="/edit-profile"  style={{ width: '100%', marginBottom: "16px" }}><SecondaryButton>Edit Profile</SecondaryButton></Link>
 
                 <Link to="/book-specialist" style={{ width: '100%' }}><PrimaryButton>Book</PrimaryButton></Link>
 

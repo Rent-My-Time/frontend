@@ -282,6 +282,7 @@ textarea {
 .PrimarySelect:focus {
     border-bottom: 2px solid #006ee6;
 }
+
 .row-items{
     display: flex;
     flex-direction: row;

@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import { useContext } from "react"
+import {ProfileContext}  from "../../ProfileContext"
 import * as styles from "./ProfilePage.module.css"
-import data from '../../data.json'
-function SpecialistFields(props) {
 
+function SpecialistFields() {
+    const [formInfo]  = useContext(ProfileContext)
     //console.log(formInfo, "FORM")
     return (
         <div className={styles['specialist-fields']}>
@@ -10,16 +11,16 @@ function SpecialistFields(props) {
                 <div className={[styles['row'], styles["space-between"]].join(' ')}>
                     <div className={styles["three-column"]}>
                         <h3>Expert Skills</h3>
-                        {props.formInfo.skills.expert.map(skill => <p>{skill}</p>)}
+                        {formInfo.skills.expert.map(skill => <p>{skill}</p>)}
                     </div>
 
                     <div className={styles["three-column"]}>
                         <h3>Intermediate Skills</h3>
-                        {props.formInfo.skills.intermediate.map(skill => <p>{skill}</p>)}
+                        {formInfo.skills.intermediate.map(skill => <p>{skill}</p>)}
                     </div>
                     <div className={styles["three-column"]}>
                         <h3>Entry Skills</h3>
-                        {props.formInfo.skills.entry.map(skill => <p>{skill}</p>)}
+                        {formInfo.skills.entry.map(skill => <p>{skill}</p>)}
                     </div>
                 </div>
             </div>

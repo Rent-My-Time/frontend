@@ -4,24 +4,26 @@ import * as styles from "./ProfilePage.module.css"
 import PrimaryButton from "../../components/reusableComponents/PrimaryButton";
 import PrimaryInput from '../../components/reusableComponents/PrimaryInput';
 import SecondaryButton from "../../components/reusableComponents/SecondaryButton";
-
+import { useContext } from "react"
+import {ProfileContext}  from "../../ProfileContext"
 function EditSpecialistFields(props) {
-    const [formInfo, setformInfo] = useState(props.formInfo)
-    const [skillsList, setSkillsList] = useState(props.formInfo.skills)
-    const [expertSkills, setExpertSkills] = useState(props.formInfo.skills.expert)
-    const [intermediateSkills, setIntermediateSkills] = useState(props.formInfo.skills.intermediate)
-    const [entrySkills, setEntrySkills] = useState(props.formInfo.skills.entry)
+
+    const [formInfo, setFormInfo]  = useContext(ProfileContext)
+    const [skillsList, setSkillsList] = useState(formInfo.skills)
+    const [expertSkills, setExpertSkills] = useState(formInfo.skills.expert)
+    const [intermediateSkills, setIntermediateSkills] = useState(formInfo.skills.intermediate)
+    const [entrySkills, setEntrySkills] = useState(formInfo.skills.entry)
     const [skill, setSkill] = useState('')
     const [level, setLevel] = useState("expert")
     let message = '';
 
 
 
-    useEffect(() => {
-        setIntermediateSkills(intermediateSkills)
-        setExpertSkills(expertSkills)
-        setEntrySkills(entrySkills)
-    }, [])
+    // useEffect(() => {
+    //     setIntermediateSkills(intermediateSkills)
+    //     setExpertSkills(expertSkills)
+    //     setEntrySkills(entrySkills)
+    // }, [])
 
     useEffect(() => {
     }, [skill])
@@ -50,7 +52,7 @@ function EditSpecialistFields(props) {
     const saveForm = () => {
         console.log(skillsList, "HELLO SAVE FORM")
         formInfo.skills = skillsList
-        setformInfo(formInfo)
+        setFormInfo(formInfo)
         console.log(formInfo)
     }
 

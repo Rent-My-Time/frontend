@@ -1,16 +1,11 @@
-import React, { useState, useEffect } from 'react'
 import * as styles from "./ProfilePage.module.css"
-import data from '../../data.json'
-import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom'
 import EditPersonalDetails from './EditPersonalDetails'
 import EditContactDetails from './EditContactDetails'
 import EditSpecialistFields from './EditSpecialistFields'
 import EditAvailability from './EditAvailability'
 function EditProfilePage() {
-    const [formInfo, setformInfo] = useState(data)
-    useEffect(() => {
-        setformInfo(data)
-    }, [])
+
     return (
         <Router>
             <div className={styles['profile-page']}>
@@ -24,10 +19,10 @@ function EditProfilePage() {
                     <div className={styles['nav-selector']}></div>
                     <div className={styles['profile-form']}>
                         <Switch>
-                            <Route path="/edit-profile" exact> <EditPersonalDetails formInfo={formInfo}/></Route>
-                            <Route path="/edit-contacts" exact> <EditContactDetails formInfo={formInfo}/></Route>
-                            <Route path="/edit-skills" exact ><EditSpecialistFields formInfo={formInfo}/> </Route>
-                            <Route path="/edit-availability" exact ><EditAvailability formInfo={formInfo}/></Route>
+                            <Route path="/edit-profile" exact> <EditPersonalDetails/></Route>
+                            <Route path="/edit-contacts" exact> <EditContactDetails /></Route>
+                            <Route path="/edit-skills" exact ><EditSpecialistFields/> </Route>
+                            <Route path="/edit-availability" exact ><EditAvailability/></Route>
                         </Switch>
                     </div>
                 </div>

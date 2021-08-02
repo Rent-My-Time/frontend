@@ -1,27 +1,26 @@
-import React, { useState, useEffect } from 'react'
 import * as styles from "./ProfilePage.module.css"
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import SecondaryButton from "../../components/reusableComponents/SecondaryButton";
 import PrimaryButton from "../../components/reusableComponents/PrimaryButton";
 import ProfileWrapper from "../../components/reusableComponents/ProfileWrapper";
 import PrimaryTextArea from "../../components/reusableComponents/PrimaryTextArea";
 import PrimaryInput from "../../components/reusableComponents/PrimaryInput";
-function EditPersonalDetails(props) {
-    const [formInfo, setformInfo] = useState(props.formInfo)
-    useEffect(() => {
-        setformInfo(formInfo)
-    }, [])
+import { useContext } from "react"
+import {ProfileContext}  from "../../ProfileContext"
+function EditPersonalDetails() {
+
+    const [formInfo, setFormInfo]  = useContext(ProfileContext)
 
     const handleInputChange = event => {
         const { name, value } = event.target
-        setformInfo({ ...formInfo, [name]: value })
+        setFormInfo({ ...formInfo, [name]: value })
 
     }
     const saveForm = () => {
         const { firstName, lastName, nationality, ageGroup, maritalStatus, children, gender, languages, city, country, education } = formInfo
         if (!firstName || !lastName || !nationality || !ageGroup || !maritalStatus || !children || !gender || !languages || !city || !country || !education) return
-        setformInfo(formInfo)
-
+        setFormInfo(formInfo)
+        console.log(formInfo)
     }
 
     return (

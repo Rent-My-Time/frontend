@@ -1,45 +1,43 @@
-import React, { useState, useEffect } from 'react'
 import * as styles from "./ProfilePage.module.css"
-import data from '../../data.json'
+import { useContext } from "react"
+import {ProfileContext}  from "../../ProfileContext"
 import PrimaryInput from "../../components/reusableComponents/PrimaryInput";
 import SecondaryButton from "../../components/reusableComponents/SecondaryButton";
 import PrimaryButton from "../../components/reusableComponents/PrimaryButton";
-function EditAvailability(props) {
-    const [formInfo, setformInfo] = useState(props.formInfo)
+function EditAvailability() {
 
-    useEffect(() => {
-        setformInfo(formInfo)
-    }, [])
+    const [formInfo, setFormInfo]  = useContext(ProfileContext)
+
 
     const handleInputChange = event => {
         const target = event.target
         const name = target.name;
-        console.log(target)
+        // console.log(target)
         switch (name) {
             case 'expert':
             case 'entry':
             case 'intermediate':
                 formInfo.expertise[name] = target.checked;
-                console.log(target.type, name )
+                // console.log(target.type, name )
                 break;
             case 'phone':
             case 'email':
             case 'zoom':
             case 'office':
                 formInfo.contactMethods[name] = target.checked;
-                console.log(target.type, name )
+                // console.log(target.type, name )
                 break;
             default:
         }
         const value = target.value;
-        setformInfo({ ...formInfo, [name]: value })
-        console.log(formInfo)
+        setFormInfo({ ...formInfo, [name]: value })
+        // console.log(formInfo)
     }
     const saveForm = () => {
         const { expertise, hourlyRate, networking, friends, other, contactMethods } = formInfo
         // const { expert, intermediate, entry } = expertise
         if (!expertise || !hourlyRate || !networking || !friends || !other || !contactMethods) return
-        setformInfo(formInfo)
+        setFormInfo(formInfo)
         console.log(formInfo, " SAVE FORM")
 
     }

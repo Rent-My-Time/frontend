@@ -4,6 +4,7 @@ import {ProfileContext}  from "../../ProfileContext"
 import PrimaryInput from "../../components/reusableComponents/PrimaryInput";
 import SecondaryButton from "../../components/reusableComponents/SecondaryButton";
 import PrimaryButton from "../../components/reusableComponents/PrimaryButton";
+import { Link } from "react-router-dom";
 function EditAvailability() {
 
     const [formInfo, setFormInfo]  = useContext(ProfileContext)
@@ -122,7 +123,7 @@ function EditAvailability() {
 
                     </div>
                     <div style={{ width: '46%' }}>
-                        <SecondaryButton >Discard Changes</SecondaryButton>
+                    <Link to="/my-info" style={{ width: '100%' }}><SecondaryButton >Discard Changes</SecondaryButton></Link>
                     </div>
                 </div>
             </div>

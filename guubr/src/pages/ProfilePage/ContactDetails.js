@@ -3,7 +3,7 @@ import * as styles from "./ProfilePage.module.css"
 import { useContext } from "react"
 import {ProfileContext}  from "../../ProfileContext"
 function ContactDetails() {
-    const [formInfo]  = useContext(ProfileContext)
+    const [formInfo, setFormInfo]  = useContext(ProfileContext)
     //console.log(formInfo, "FORM")
     return (
         <div className={styles['contact-details']}>

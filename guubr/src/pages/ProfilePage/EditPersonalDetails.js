@@ -7,6 +7,7 @@ import PrimaryTextArea from "../../components/reusableComponents/PrimaryTextArea
 import PrimaryInput from "../../components/reusableComponents/PrimaryInput";
 import { useContext } from "react"
 import {ProfileContext}  from "../../ProfileContext"
+
 function EditPersonalDetails() {
 
     const [formInfo, setFormInfo]  = useContext(ProfileContext)
@@ -127,7 +128,7 @@ function EditPersonalDetails() {
                 <div style={{ width: "100%", marginBottom: "16px" }}>
                     < PrimaryButton onClick={saveForm}>Save Changes</ PrimaryButton>
                 </div>
-                <SecondaryButton>Discard Changes</SecondaryButton>
+                <Link to="/my-info" style={{ width: '100%' }}><SecondaryButton>Discard Changes</SecondaryButton></Link>
 
 
             </div>

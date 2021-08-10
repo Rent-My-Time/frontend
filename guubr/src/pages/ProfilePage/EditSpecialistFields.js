@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import * as styles from "./ProfilePage.module.css"
-
+import { Link } from 'react-router-dom';
 import PrimaryButton from "../../components/reusableComponents/PrimaryButton";
 import PrimaryInput from '../../components/reusableComponents/PrimaryInput';
 import SecondaryButton from "../../components/reusableComponents/SecondaryButton";
@@ -177,7 +177,7 @@ function EditSpecialistFields(props) {
                     <PrimaryButton style={{ width: "12%" }} type="submit" onClick={submitSkill}>Submit</PrimaryButton>
                     <div className={styles['column']} style={{ width: "20%" }}>
                         < PrimaryButton onClick={saveForm} style={{ marginBottom: "16px" }}>Save Changes</ PrimaryButton>
-                        <SecondaryButton>Discard Changes</SecondaryButton>
+                        <Link to="/my-info" style={{ width: '100%' }}><SecondaryButton>Discard Changes</SecondaryButton></Link>
                     </div>
                 </div>
             </div>

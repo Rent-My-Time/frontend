@@ -5,6 +5,7 @@ import PrimaryButton from "../../components/reusableComponents/PrimaryButton";
 import { useContext } from "react"
 import { ProfileContext } from "../../ProfileContext"
 import PrimaryInput from "../../components/reusableComponents/PrimaryInput";
+import { Link } from "react-router-dom";
 function EditContactDetails() {
 
     const [formInfo, setFormInfo] = useContext(ProfileContext)
@@ -89,7 +90,7 @@ function EditContactDetails() {
                         <PrimaryButton onClick={saveForm} >Save Changes</PrimaryButton>
                     </div>
                     <div style={{ width: '46%' }}>
-                        <SecondaryButton >Discard Changes</SecondaryButton>
+                    <Link to="/my-info" style={{ width: '100%' }}> <SecondaryButton >Discard Changes</SecondaryButton></Link>
                     </div>
                 </div>
 

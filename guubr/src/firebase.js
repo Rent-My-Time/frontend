@@ -18,7 +18,7 @@ const firebaseConfig = {
 
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
-}else {
+} else {
   firebase.app(); // if already initialized, use that one
 }
 
@@ -28,8 +28,9 @@ const db = firebase.firestore();
 export const getUsersList = usersListId => {
   console.log("in getUsersList: ");
   return db.collection('users')
-      .doc(usersListId)
-      .get();
+    .doc(usersListId)
+    .get();
 };
+
 
 export default firebase;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useRouteMatch } from 'react';
 import Header from '../components/Header';
 import Profile from '../components/home/Profile';
 import Skill from '../components/home/Skill';
@@ -7,9 +7,15 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
 import IconFooter from '../components/IconFooter';
+import { UserListContext } from '../UserListContext';
 
 function Home() {
+  const [userList, setUserList] = useContext(UserListContext)
+
+  console.log(userList)
+
   return (
+
     <Container>
       <Header />
       <Title>Market Place Where You Buy Peoples' Time</Title>
@@ -31,7 +37,21 @@ function Home() {
       </More>
       <Discover>Discover Diverse Expertise</Discover>
       <Profiles>
-        <Link to={`/my-info`} style={{ textDecoration: 'none' }}>
+        {userList && userList.map((user, index) => {
+          return (
+            <Link
+              to={`/profile/details/${user.id}`}
+              key={`${user.id}`}
+              style={{ textDecoration: 'none' }}>
+              <Profile
+                key={`${user.id}`}
+                name={`${user.fullName.firstName}`}
+                experties={user.occupation}
+                rate={user.hourlyRate}
+                photo={user.website}
+              /></Link>)
+        })}
+        {/* <Link to={`/my-info`} style={{ textDecoration: 'none' }}>
           <Profile
             name="Elina"
             experties="Coach"
@@ -68,7 +88,7 @@ function Home() {
           experties="Dancer"
           rate="115"
           photo="/images/profile1.png"
-        />
+        /> */}
       </Profiles>
       <More>
         <p>More</p>
@@ -77,6 +97,7 @@ function Home() {
       <Footer />
       <IconFooter />
     </Container>
+
   );
 }
 

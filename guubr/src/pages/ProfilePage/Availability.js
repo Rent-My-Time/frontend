@@ -52,7 +52,6 @@ function Availability() {
                     <p><span className={styles["bold-font"]}>Phone:</span>{boolToString(formInfo.contactMethods.phone)}</p>
                     <p><span className={styles["bold-font"]}>Email:</span> {boolToString(formInfo.contactMethods.email)}</p>
                     <p><span className={styles["bold-font"]}>Zoom:</span> {boolToString(formInfo.contactMethods.zoom)}</p>
-                    <p><span className={styles["bold-font"]}>Other:</span> {formInfo.contactMethods.other}</p>
                 </div>
             </div>
 

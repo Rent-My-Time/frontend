@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import React from "react";
+import { BrowserRouter as Router, Switch, Route, useRouteMatch } from "react-router-dom";
 import ContextProvider from "./Context";
 import "./App.css";
 import Home from "./pages/Home";
@@ -10,54 +10,41 @@ import BookingPage from "./pages/BookingPage";
 import EditProfilePage from "./pages/ProfilePage/EditProfilePage";
 import LoginGooglePage from "./pages/LoginGooglePage";
 import AddUserPage from "./pages/AddUserPage";
+import UserListContextProvider from "./UserListContext";
 
 //db imports
 import firebase from "./firebase";
 import "firebase/firestore";
+import ProfileContextProvider from "./ProfileContext";
 
 function App() {
-
-/** ??TEST added by Joshua .. DELETE Later ? */
-  useEffect(() => {
-    const db = firebase.firestore();
-    const users = db.collection("users").doc("inneHPnUttDcKfPXS6oN");
-    users.get().then((doc) => {
-      if (doc.exists) {
-        console.log("Document data:", doc.data());
-      } else {
-        // doc.data() will be undefined in this case
-        console.log("No such document!");
-      }
-    });
-  }, []);
-/* end test added by Joshua */
-
   return (
     <ContextProvider>
-      <Router>
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/signup" exact component={AccountBox} />
-          <Route path="/faq" exact component={FaqPage} />
-          <Route path="/booking" exact component={BookingPage} />
+      <UserListContextProvider>
 
-          <Route path="/loginGoogle" exact component={LoginGooglePage} />
-          <Route path="/addUser" exact component={AddUserPage} />
+        <Router>
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/signup" exact component={AccountBox} />
+            <Route path="/faq" exact component={FaqPage} />
+            <Route path="/booking" exact component={BookingPage} />
+
+            <Route path="/loginGoogle" exact component={LoginGooglePage} />
+            <Route path="/addUser" exact component={AddUserPage} />
 
 
-          {/* render master component EditProfilePage with its children */}
-          <Route path="/edit-profile" exact component={EditProfilePage} />
-          <Route path="/edit-contacts" exact component={EditProfilePage} />
-          <Route path="/edit-skills" exact component={EditProfilePage} />
-          <Route path="/edit-availability" exact component={EditProfilePage} />
+            {/* render master component EditProfilePage with its children */}
+            <Route exact path="/edit-profile" component={EditProfilePage} />
+            <Route exact path="/edit-contacts" component={EditProfilePage} />
+            <Route exact path="/edit-skills" component={EditProfilePage} />
+            <Route exact path="/edit-availability" component={EditProfilePage} />
 
-          {/* render master component ProfilePage with its children */}
-          <Route path="/my-info" exact component={ProfilePage} />
-          <Route path="/my-contacts" exact component={ProfilePage} />
-          <Route path="/my-skills" exact component={ProfilePage} />
-          <Route path="/availability" exact component={ProfilePage} />
-        </Switch>
-      </Router>
+            {/* render master component ProfilePage with its children */}
+            <Route exact path="/profile/details/:id" component={ProfilePage} />
+            <Route path="/profile/" component={ProfilePage} />
+          </Switch>
+        </Router>
+      </UserListContextProvider>
     </ContextProvider>
   );
 }

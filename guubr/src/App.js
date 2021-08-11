@@ -34,13 +34,17 @@ function App() {
 
 
             {/* render master component EditProfilePage with its children */}
-            <Route exact path="/edit-profile" component={EditProfilePage} />
-            <Route exact path="/edit-contacts" component={EditProfilePage} />
-            <Route exact path="/edit-skills" component={EditProfilePage} />
-            <Route exact path="/edit-availability" component={EditProfilePage} />
+            <Route exact path="/edit-profile/details/:id" component={EditProfilePage} />
+            <Route exact path="/edit-profile/contacts/:id" component={EditProfilePage} />
+            <Route exact path="/edit-profile/skills/:id" component={EditProfilePage} />
+            <Route exact path="/edit-profile/availability/:id" component={EditProfilePage} />
+            <Route path="/edit-profile/" component={EditProfilePage} />
 
             {/* render master component ProfilePage with its children */}
             <Route exact path="/profile/details/:id" component={ProfilePage} />
+            <Route exact path="/profile/contacts/:id" component={ProfilePage} />
+            <Route exact path="/profile/skills/:id" component={ProfilePage} />
+            <Route exact path="/profile/availability/:id" component={ProfilePage} />
             <Route path="/profile/" component={ProfilePage} />
           </Switch>
         </Router>

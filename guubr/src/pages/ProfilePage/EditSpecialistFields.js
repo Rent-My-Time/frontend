@@ -5,18 +5,19 @@ import PrimaryButton from "../../components/reusableComponents/PrimaryButton";
 import PrimaryInput from '../../components/reusableComponents/PrimaryInput';
 import SecondaryButton from "../../components/reusableComponents/SecondaryButton";
 import { useContext } from "react"
+import firebase from "../../firebase";
 import {ProfileContext}  from "../../ProfileContext"
 function EditSpecialistFields(props) {
-
     const [formInfo, setFormInfo]  = useContext(ProfileContext)
-    const [skillsList, setSkillsList] = useState(formInfo.skills)
-    const [expertSkills, setExpertSkills] = useState(formInfo.skills.expert)
-    const [intermediateSkills, setIntermediateSkills] = useState(formInfo.skills.intermediate)
-    const [entrySkills, setEntrySkills] = useState(formInfo.skills.entry)
+    const [skillsList, setSkillsList] = useState(formInfo ? formInfo.skills : {})
+    const [expertSkills, setExpertSkills] = useState(formInfo ? formInfo.skills.expert : {})
+    const [intermediateSkills, setIntermediateSkills] = useState(formInfo ? formInfo.skills.intermediate: {})
+    const [entrySkills, setEntrySkills] = useState(formInfo ? formInfo.skills.entry : {})
     const [skill, setSkill] = useState('')
     const [level, setLevel] = useState("expert")
     let message = '';
-
+    const db = firebase.firestore();
+    const docRef = db.collection("users").doc(`${props.id}`);
 
 
     // useEffect(() => {
@@ -26,6 +27,7 @@ function EditSpecialistFields(props) {
     // }, [])
 
     useEffect(() => {
+        
     }, [skill])
 
     const handleInputChange = e => {
@@ -54,6 +56,7 @@ function EditSpecialistFields(props) {
         formInfo.skills = skillsList
         setFormInfo(formInfo)
         console.log(formInfo)
+        docRef.set(formInfo)
     }
 
     const handleKeyPress = e => {
@@ -177,7 +180,7 @@ function EditSpecialistFields(props) {
                     <PrimaryButton style={{ width: "12%" }} type="submit" onClick={submitSkill}>Submit</PrimaryButton>
                     <div className={styles['column']} style={{ width: "20%" }}>
                         < PrimaryButton onClick={saveForm} style={{ marginBottom: "16px" }}>Save Changes</ PrimaryButton>
-                        <Link to="/my-info" style={{ width: '100%' }}><SecondaryButton>Discard Changes</SecondaryButton></Link>
+                        <Link to={`/profile/skills/${props.id}`} style={{ width: '100%' }}><SecondaryButton>Discard Changes</SecondaryButton></Link>
                     </div>
                 </div>
             </div>

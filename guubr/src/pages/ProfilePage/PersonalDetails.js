@@ -1,12 +1,13 @@
 import {useContext} from 'react'
 import * as styles from "./ProfilePage.module.css"
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import SecondaryButton from "../../components/reusableComponents/SecondaryButton";
 import PrimaryButton from "../../components/reusableComponents/PrimaryButton";
 import ProfileWrapper from "../../components/reusableComponents/ProfileWrapper";
 import {ProfileContext}  from "../../ProfileContext"
 
-function PersonalDetails() {
+function PersonalDetails(props) {
+
     const [formInfo, setFormInfo]  = useContext(ProfileContext)
     console.log(formInfo, "PROFILE CONTEXT")
     return (
@@ -72,7 +73,7 @@ function PersonalDetails() {
                     rate={formInfo && formInfo.hourlyRate}
                     photo={formInfo && formInfo.profileImage}
                 />
-                <Link to="/edit-profile"  style={{ width: '100%', marginBottom: "16px" }}><SecondaryButton>Edit Profile</SecondaryButton></Link>
+                <Link to={`/edit-profile/details/${props.id}`}  style={{ width: '100%', marginBottom: "16px" }}><SecondaryButton>Edit Profile</SecondaryButton></Link>
 
                 <Link to="/book-specialist" style={{ width: '100%' }}><PrimaryButton>Book</PrimaryButton></Link>
 

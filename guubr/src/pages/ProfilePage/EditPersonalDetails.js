@@ -1,5 +1,5 @@
 import * as styles from "./ProfilePage.module.css"
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import SecondaryButton from "../../components/reusableComponents/SecondaryButton";
 import PrimaryButton from "../../components/reusableComponents/PrimaryButton";
 import ProfileWrapper from "../../components/reusableComponents/ProfileWrapper";
@@ -7,20 +7,33 @@ import PrimaryTextArea from "../../components/reusableComponents/PrimaryTextArea
 import PrimaryInput from "../../components/reusableComponents/PrimaryInput";
 import { useContext } from "react"
 import {ProfileContext}  from "../../ProfileContext"
-
-function EditPersonalDetails() {
-
+import firebase from "../../firebase";
+function EditPersonalDetails(props) {
     const [formInfo, setFormInfo]  = useContext(ProfileContext)
+    const db = firebase.firestore();
+    const docRef = db.collection("users").doc(`${props.id}`);
+
 
     const handleInputChange = event => {
         const { name, value } = event.target
         setFormInfo({ ...formInfo, [name]: value })
 
     }
-    const saveForm = () => {
-        const { firstName, lastName, nationality, ageGroup, maritalStatus, children, gender, languages, city, country, education } = formInfo
-        if (!firstName || !lastName || !nationality || !ageGroup || !maritalStatus || !children || !gender || !languages || !city || !country || !education) return
+    const saveForm = (e) => {
+
+        e.preventDefault()
+        console.log("HELLO")
+        const { fullName, nationality, ageGroup, maritalStatus, children, gender, languages, city, country, education } = formInfo
+        if (fullName) {
+            formInfo.fullName = {
+                firstName: formInfo.fullName.firstName,
+                lastName: formInfo.fullName.lastName
+            }
+
+        }
+        if (!fullName || !nationality || !ageGroup || !maritalStatus || !children || !gender || !languages || !city || !country || !education) return
         setFormInfo(formInfo)
+        docRef.set(formInfo)
         console.log(formInfo)
     }
 
@@ -32,23 +45,23 @@ function EditPersonalDetails() {
                 <h3>Name</h3>
                 <form className={styles['form-row']}>
                     <div className={styles['two-column']}>
-                        <PrimaryInput type="text" name="firstName" value={formInfo.firstName} onChange={handleInputChange} />
+                        <PrimaryInput type="text" name="firstName" value={formInfo && formInfo.fullName.firstName} onChange={handleInputChange} />
                     </div>
 
                     <div className={styles['two-column']}>
-                        <PrimaryInput type="text" name="lastName" value={formInfo.lastName} onChange={handleInputChange} />
+                        <PrimaryInput type="text" name="lastName" value={formInfo && formInfo.fullName.lastName} onChange={handleInputChange} />
                     </div>
 
                 </form>
                 <h3>Nationality</h3>
                 <form >
-                    <PrimaryInput type="text" name="nationality" value={formInfo.nationality} onChange={handleInputChange} />
+                    <PrimaryInput type="text" name="nationality" value={formInfo && formInfo.nationality} onChange={handleInputChange} />
                 </form>
 
                 <form className={styles['form-row']}>
                     <div className={styles['two-column']}>
                         <h3>Age Group</h3>
-                        <select name="ageGroup" value={formInfo.ageGroup} className={styles['PrimarySelect']} onChange={handleInputChange}>
+                        <select name="ageGroup" value={formInfo && formInfo.ageGroup} className={styles['PrimarySelect']} onChange={handleInputChange}>
                             <option value='20-30'>20-30</option>
                             <option value='30-40'>30-40</option>
                             <option value='40-50'>40-50</option>
@@ -61,7 +74,7 @@ function EditPersonalDetails() {
 
                     <div className={styles['two-column']}>
                         <h3>Marital Status</h3>
-                        <select name="maritalStatus" value={formInfo.maritalStatus} className={styles['PrimarySelect']} onChange={handleInputChange}>
+                        <select name="maritalStatus" value={formInfo && formInfo.maritalStatus} className={styles['PrimarySelect']} onChange={handleInputChange}>
                             <option value='Married'>Married</option>
                             <option value='Single'>Single</option>
                             <option value='not specified'>Not Specified</option>
@@ -72,17 +85,18 @@ function EditPersonalDetails() {
                     <div className={styles['two-column']}>
                         <h3>Children</h3>
 
-                        <select name="children" value={formInfo.children} className={styles['PrimarySelect']} onChange={handleInputChange}>
-                            <option value='none'>None</option>
+                        <select name="children" value={formInfo && formInfo.children} className={styles['PrimarySelect']} onChange={handleInputChange}>
+                            <option value='0'>None</option>
                             <option value='1'>1</option>
                             <option value='2'>2</option>
-                            <option value='3'>3+</option>
+                            <option value='3'>3</option>
+                            <option value={formInfo && formInfo.children > 3}>More than 3</option>
                         </select>
                     </div>
                     <div className={styles['two-column']}>
                         <h3>Gender</h3>
 
-                        <select name="gender" value={formInfo.gender} className={styles['PrimarySelect']} onChange={handleInputChange}>
+                        <select name="gender" value={formInfo && formInfo.gender} className={styles['PrimarySelect']} onChange={handleInputChange}>
                             <option value='not specified'>Not Specified</option>
                             <option value='male'>Male</option>
                             <option value='female'>Female</option>
@@ -92,23 +106,23 @@ function EditPersonalDetails() {
                 </form>
                 <h3>Languages</h3>
                 <form >
-                    <PrimaryInput type="text" name="languages" value={formInfo.languages} onChange={handleInputChange} />
+                    <PrimaryInput type="text" name="languages" value={formInfo && formInfo.languages} onChange={handleInputChange} />
                 </form>
                 <h3>Location</h3>
 
                 <form className={styles['form-row']}>
                     <div className={styles['two-column']}>
-                        <PrimaryInput type="text" name="city" value={formInfo.city} onChange={handleInputChange} />
+                        <PrimaryInput type="text" name="city" value={formInfo && formInfo.city} onChange={handleInputChange} />
                     </div>
                     <div className={styles['two-column']}>
-                        <PrimaryInput type="text" name="country" value={formInfo.country} onChange={handleInputChange} />
+                        <PrimaryInput type="text" name="country" value={formInfo && formInfo.country} onChange={handleInputChange} />
                     </div>
                 </form>
 
                 <h3>Education</h3>
 
                 <form>
-                    <PrimaryTextArea name="education" value={formInfo.education} onChange={handleInputChange} />
+                    <PrimaryTextArea name="education" value={formInfo && formInfo.education} onChange={handleInputChange} />
                 </form>
 
             </div>
@@ -120,15 +134,15 @@ function EditPersonalDetails() {
                 </div>
                 <ProfileWrapper
 
-                    name={formInfo.profileName}
-                    experties={formInfo.occupation}
-                    rate={formInfo.hourlyRate}
-                    photo={formInfo.profileImage}
+                    name={formInfo && formInfo.profileName}
+                    experties={formInfo && formInfo.occupation}
+                    rate={formInfo && formInfo.hourlyRate}
+                    photo={formInfo && formInfo.profileImage}
                 />
                 <div style={{ width: "100%", marginBottom: "16px" }}>
-                    < PrimaryButton onClick={saveForm}>Save Changes</ PrimaryButton>
+                    < PrimaryButton onClick={(ev)=> saveForm(ev)}>Save Changes</ PrimaryButton>
                 </div>
-                <Link to="/my-info" style={{ width: '100%' }}><SecondaryButton>Discard Changes</SecondaryButton></Link>
+                <Link to={`/profile/details/${props.id}`} style={{ width: '100%' }}><SecondaryButton>Discard Changes</SecondaryButton></Link>
 
 
             </div>

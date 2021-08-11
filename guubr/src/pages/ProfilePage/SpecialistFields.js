@@ -2,7 +2,7 @@ import { useContext } from "react"
 import {ProfileContext}  from "../../ProfileContext"
 import * as styles from "./ProfilePage.module.css"
 
-function SpecialistFields() {
+function SpecialistFields(props) {
     const [formInfo, setFormInfo]  = useContext(ProfileContext)
     console.log(formInfo, "FORM")
     return (

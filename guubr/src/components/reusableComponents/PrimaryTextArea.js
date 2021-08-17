@@ -24,12 +24,9 @@ const StyledTextArea = styled.textarea`
   letter-spacing: 2px;
   resize: none;
   width: 100%;
-
   ::placeholder {
     color: #a6a6a6;
-    font-family: Helvetica, Arial, sans-serif;
   }
-
   &:focus {
     border: 2px solid #006ee6;
   }

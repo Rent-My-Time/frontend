@@ -137,7 +137,7 @@ const DisorderBox = () => {
                   name="removeDisorder"
                   id="idRemoveDisorder"
                   value="-"
-                  onclick={(ev) => removePxDisorder(ev)}
+                  onclick={(ev) => DisorderBox(ev)}
                 />
               </div>
               <p>

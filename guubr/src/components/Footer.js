@@ -20,6 +20,7 @@ function Footer() {
 }
 
 const Container = styled.footer`
+  width: 100%;
   display: flex;
   align-items: center;
   height: 50px;

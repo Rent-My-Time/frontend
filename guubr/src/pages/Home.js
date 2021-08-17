@@ -9,7 +9,8 @@ import Footer from '../components/Footer';
 import IconFooter from '../components/IconFooter';
 
 function Home() {
-  return (
+
+    return (
     <Container>
       <Header />
       <Title>Market Place Where You Buy Peoples' Time</Title>

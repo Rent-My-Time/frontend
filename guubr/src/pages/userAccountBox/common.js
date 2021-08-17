@@ -8,29 +8,33 @@ export const BoxContainer= styled.div`
      flex-direction: column;
      align-items:center;
      margin-top: 10px;
+
 `;
 
 export const FormContainer=styled.form`
      width: 100%;
-     margin: 10px;
+     margin: 2px;
      display: flex;
      flex-direction: column;
      box-shadow: 0px, 0px, 2.5px rgba(15, 15, 15 , 0.19);
      padding-left: 10px;
+     border: 0.3px solid 1D37C2
+
+
 `;
 
 // **** Used as Hyperlink when you forgot your password
 
 export const MutedLink = styled.a`
      font-size: 12px;
-     color: rgba(200, 200, 200, 0.8);
+     color: rgba(54,58,83,1);
      font-weight: 500;
      text-decoration: none;
 `;
 
 export const BoldLink = styled.a`
      font-size: 12px;
-     color: #7263e3;
+     color:rgb(28,55,194);
      font-weight: 500;
      text-decoration: none;
      margin: 0 4px;
@@ -41,15 +45,16 @@ export const Input = styled.input`
   width: 90%;
   height: 42px;
   outline: none;
-  border: 1px solid rgba(200, 200, 200, 0.3);
+   border: 1px solid rgba(200, 200, 200, 0.3);
+  background: #ffffff;
+  border: 1px solid lightgrey;
   padding: 0px 10px;
   border-bottom: 1.4px solid transparent;
   transition: all 200ms ease-in-out;
   font-size: 12px;
 
   &::placeholder {
-    color: rgba(200, 200, 200, 1
-      );
+    color: rgba(203, 200, 200, 4  );
   }
 
   &:not(:last-of-type) {
@@ -58,32 +63,85 @@ export const Input = styled.input`
 
   &:focus {
     outline: none;
-    border-bottom: 2px solid rgb(136, 142, 176, 0.4);
+    border-bottom: 1px solid rgba(139,174,241,0.9979342078628326);
+
   }
+  .error-message &:focus{
+    outline: none;
+    border-bottom: 2px solid red;
+  }
+
 `;
+
+
 
 export const SubmitButton = styled.button`
   width: 90%;
   margin: 5px;
   padding: 11px 20px;
   display: inline-block;
-  color: #fff;
+  color: #000;
   font-size: 15px;
   font-weight: 600;
   text-align: center;
-  border: none;
-  border-radius: 3px 3px 3px 3px;
+  /* border: none;
+  border-radius: 3px 3px 3px 3px; */
+  border-radius: 5px;
+  border: 1px 1px solid #333;
   cursor: pointer;
   transition: all, 240ms ease-in-out;
-  background: rgba(138, 146, 180, 1);
+  background-color:rgba(228,232,236,1);
+  border: 1px solid #333;
+
+
+  &:hover {
+     background: lightgrey;
+
+
+;
+
+    &:img {
+      float: center;
+    }
+  }
+  `;
+  export const GoogleButton = styled.button`
+  width: 90%;
+  margin: 5px;
+  padding: 11px 20px;
+  font-weight: 600;
+  text-align: center;
+  border: none;
+  /* border-radius: 3px 3px 3px 3px; */
+  cursor: pointer;
+  transition: all, 240ms ease-in-out;
+  background: rgb(0,110,230);
+  background-image: url("/assets/google.png");
+
+    font-size: 16px;
+    color: white;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #333;
+    cursor: pointer;
+    background-size: contain;
+    color: black;
+
 
 
     &:hover {
-      filter: brightness(1.03);
-    }
-  `;
+      background: rgba(228,232,236,1);
 
-const BookingPage__Logo =styled.div`
+;;
+    &:img {
+      float: center;
+    }
+  }
+`;
+
+
+ const BookingPage__Logo =styled.div`
   width: 100px;
   height: 100px;
   margin: 0 2%;
@@ -94,4 +152,15 @@ const BookingPage__Header =styled.div`
   justify-content: center;
   align-items: center;
   margin: 3%;
+`
+export const UnorderedList = styled.ul`
+    margin: 0 2%;
+    color: red;
+    font-size: 0.75em;
+    position: relative;
+
+     ul li{
+  	display: inline-table;
+    }
+
 `

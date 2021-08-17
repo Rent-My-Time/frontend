@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import PrimaryButton from "./reusableComponents/PrimaryButton.js";
 
+
+
 function Header() {
   return (
     <Container>
@@ -16,6 +18,9 @@ function Header() {
         </Link>
         <Link to="/booking">
           <h2>Booking</h2>
+        </Link>
+        <Link to="/loginGoogle">
+          <h2>GoogleLOGIN</h2>
         </Link>
       </div>
     </Container>

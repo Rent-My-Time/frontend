@@ -17,7 +17,7 @@ function EditSpecialistFields(props) {
     const [level, setLevel] = useState("expert")
     let message = '';
     const db = firebase.firestore();
-    const docRef = db.collection("users").doc(`${props.id}`);
+    const docRef = db.collection("userProfiles").doc(`${props.id}`);
 
 
     // useEffect(() => {
@@ -179,7 +179,7 @@ function EditSpecialistFields(props) {
                 <div className={[styles['row'], styles["space-between"]].join(' ')} style={{ alignItems: "flex-end" }}>
                     <PrimaryButton style={{ width: "12%" }} type="submit" onClick={submitSkill}>Submit</PrimaryButton>
                     <div className={styles['column']} style={{ width: "20%" }}>
-                        < PrimaryButton onClick={saveForm} style={{ marginBottom: "16px" }}>Save Changes</ PrimaryButton>
+                        < PrimaryButton onClick={(ev) => saveForm(ev)} style={{ marginBottom: "16px" }}>Save Changes</ PrimaryButton>
                         <Link to={`/profile/skills/${props.id}`} style={{ width: '100%' }}><SecondaryButton>Discard Changes</SecondaryButton></Link>
                     </div>
                 </div>

@@ -7,7 +7,7 @@ const ProfileContextProvider = ({children}) => {
     const { id } = useParams()
     const [formInfo, setFormInfo] = useState()
     const db = firebase.firestore();
-    const docRef = db.collection("users").doc(`${id}`);
+    const docRef = db.collection("userProfiles").doc(`${id}`);
 
 
 

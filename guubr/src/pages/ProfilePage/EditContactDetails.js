@@ -11,7 +11,7 @@ function EditContactDetails(props) {
 
     const [formInfo, setFormInfo] = useContext(ProfileContext)
     const db = firebase.firestore();
-    const docRef = db.collection("users").doc(`${props.id}`);
+    const docRef = db.collection("userProfiles").doc(`${props.id}`);
 
     const handleInputChange = event => {
         const target = event.target
@@ -32,19 +32,8 @@ function EditContactDetails(props) {
         setFormInfo({ ...formInfo, [name]: value })
     }
 
-    const saveForm = () => {
-        const { telephone, email, websites, offices, socialmedia } = formInfo
-        if (socialmedia) {
-            formInfo.socialmedia = {
-                facebook: formInfo.socialmedia.facebook,
-                youtube: formInfo.socialmedia.youtube,
-                instagram: formInfo.socialmedia.instagram,
-                linkedin: formInfo.socialmedia.linkedin,
-                tiktok: formInfo.socialmedia.tiktok,
-            }
-
-        }
-        if (!telephone || !email || !websites || !offices || !socialmedia) return
+    const saveForm = (e) => {
+        e.preventDefault();
         setFormInfo(formInfo)
         console.log(formInfo)
         docRef.set(formInfo)
@@ -91,7 +80,7 @@ function EditContactDetails(props) {
                 </form>
                 <div className={styles['row']}>
                     <div style={{ width: '46%' }}>
-                        <PrimaryButton onClick={saveForm} >Save Changes</PrimaryButton>
+                        <PrimaryButton onClick={(ev) => saveForm(ev)} >Save Changes</PrimaryButton>
                     </div>
                     <div style={{ width: '46%' }}>
                     <Link to={`/profile/contacts/${props.id}`} style={{ width: '100%' }}> <SecondaryButton >Discard Changes</SecondaryButton></Link>

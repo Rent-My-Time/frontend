@@ -4,7 +4,8 @@ import styled from 'styled-components';
 function Profile(props) {
   return (
     <Container>
-      <img src={props.photo} alt="profile picture" />
+      <img src={`/images/${props.photo}`} alt="profile" />
+      {console.log('pic: ',props.name)}
       <Info>
         <Name>{props.name}</Name>
         <div>

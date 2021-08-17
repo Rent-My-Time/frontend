@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useContext, useRouteMatch } from 'react';
 import Header from '../components/Header';
 import Profile from '../components/home/Profile';
 import Skill from '../components/home/Skill';
@@ -6,75 +6,87 @@ import Search from '../components/home/Search';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
+import IconFooter from '../components/IconFooter';
+import { UserListContext } from '../UserListContext';
 
 function Home() {
+  const [userList, setUserList] = useContext(UserListContext);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [expand, setExpand] = useState(false);
+
+  const skillsList = ['Model', 'Actor', 'Bartender', 'Security', 'Nanny', 'App Developer',
+                      'Web Designer', 'Personal Assistant', 'Self Development', 
+                      'Photographer', 'Makeup Artist','Security Systems', 'Handyman', 
+                      'Analytics', 'Marketing', 'Writer', 'Designer'];
+  const highlightedSkills = ['Model', 'Actor', 'Bartender', 'Security', 'Nanny', 'App Developer',
+                            'Web Designer', 'Personal Assistant', 'Self Development'];
+
+console.log('search term = ', searchTerm)
+  console.log(userList)
+
   return (
     <Container>
       <Header />
       <Title>Market Place Where You Buy Peoples' Time</Title>
-      <Search />
-      <Skills>
-        <Skill>Model</Skill>
-        <Skill>Actor</Skill>
-        <Skill>Bartender</Skill>
-        <Skill>Security</Skill>
-        <Skill>Nanny</Skill>
-        <Skill>App Developer</Skill>
-        <Skill>Web Designer</Skill>
-        <Skill>Personal Assistant</Skill>
-        <Skill>Self Development</Skill>
-      </Skills>
-      <More>
-        <p>More</p>
-        <img src="/images/arrow.svg" alt="arrow icon" />
+      <Search   
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+      />
+      <div>
+        {expand ? (
+          <Skills>
+           {skillsList.map((skill) => <Skill>{skill}</Skill>) }
+          </Skills>
+        ) : (
+          <Skills>
+            {highlightedSkills.map((skill) => <Skill>{skill}</Skill>) }
+          </Skills>
+        )}
+      </div>
+
+      <More onClick={() => setExpand(!expand)}>
+        <p>{expand ? 'Less' : 'More'}</p>
+        <img
+          src={expand ? '/images/arrow-up.svg' : '/images/arrow-down.svg'}
+          alt="arrow icon"
+        />
       </More>
+
       <Discover>Discover Diverse Expertise</Discover>
+      {userList && userList.map(user => console.log(user.occupation))}
+      
       <Profiles>
-        <Link to={`/profile-page`} style={{ textDecoration: 'none' }}>
-          <Profile
-            name="Elina"
-            experties="Coach"
-            rate="199"
-            photo="/images/profile2.png"
-          />
-        </Link>
-        <Profile
-          name="Elina"
-          experties="Coach"
-          rate="199"
-          photo="/images/profile2.png"
-        />
-        <Profile
-          name="Elina"
-          experties="Coach"
-          rate="199"
-          photo="/images/profile2.png"
-        />
-        <Profile
-          name="Oleg"
-          experties="Dancer"
-          rate="115"
-          photo="/images/profile1.png"
-        />
-        <Profile
-          name="Oleg"
-          experties="Dancer"
-          rate="115"
-          photo="/images/profile1.png"
-        />
-        <Profile
-          name="Oleg"
-          experties="Dancer"
-          rate="115"
-          photo="/images/profile1.png"
-        />
+        {userList && userList
+          .filter(
+            (user) =>
+              user.occupation
+              .toLowerCase()
+              .includes(searchTerm && searchTerm.toLowerCase().trim()) 
+                
+          ).map((user) =>  <Link
+            to={`/profile/details/${user.id}`}
+            key={`${user.id}`}
+            style={{ textDecoration: 'none' }}>
+            <Profile
+              key={`${user.id}`}
+              name={`${user.fullName.firstName}`}
+              experties={user.occupation}
+              rate={user.hourlyRate}
+              photo={user.pic}
+            /></Link>
+            )}
       </Profiles>
+
       <More>
         <p>More</p>
-        <img src="/images/arrow.svg" alt="arrow icon" />
+        <img src="/images/arrow-down.svg" alt="arrow icon" />
       </More>
+
       <Footer />
+      <IconFooter />
+    
     </Container>
+
   );
 }
 

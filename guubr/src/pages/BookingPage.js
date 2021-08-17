@@ -23,8 +23,12 @@ function BookingPage(props) {
         <Guubr className="BookingPage__Logo" />
       </div>
       <TitleBookingPage>
-        <h1>Booking Request {props.id}</h1>
+        <h1>Booking Request</h1>
       </TitleBookingPage>
+
+      <BookingProfileDisplay>
+        <h2>Booking: {props.id}</h2>
+      </BookingProfileDisplay>
 
       <div className="BookingPage__Main">
         <form>
@@ -137,6 +141,20 @@ const TitleBookingPage = styled.div`
   letter-spacing: 2px;
   font-weight: 100;
   text-transform: uppercase;
+  @media (max-width: 768px) {
+    padding-left: 4px;
+    font-size: 12px;
+  }
+`;
+
+const BookingProfileDisplay = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: enter;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  font-weight: 100;
+  color: var(--guubr-letter1);
   @media (max-width: 768px) {
     padding-left: 4px;
     font-size: 12px;

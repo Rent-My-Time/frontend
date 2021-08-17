@@ -14,9 +14,6 @@ function Header() {
         <Link to="/signup">
           <PrimaryButton className="signup">Sign Up</PrimaryButton>
         </Link>
-        <Link to="/booking">
-          <h2>Booking</h2>
-        </Link>
         <Link to="/loginGoogle">
           <h2>GoogleLOGIN</h2>
         </Link>
@@ -41,7 +38,7 @@ const Container = styled.nav`
     justify-content: space-between;
     align-items: center;
     min-width: 220px;
-    gap: 5px;
+    gap: 8px;
 
     @media (max-width: 460px) {
       flex-direction: column;

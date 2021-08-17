@@ -15,7 +15,7 @@ import PrimaryButton from "../components/reusableComponents/PrimaryButton.js";
 import PrimaryInput from "../components/reusableComponents/PrimaryInput.js";
 import PrimaryTextArea from "../components/reusableComponents/PrimaryTextArea.js";
 
-function BookingPage() {
+function BookingPage(props) {
   return (
     <div className="BookingPage__Container">
 
@@ -23,7 +23,7 @@ function BookingPage() {
         <Guubr className="BookingPage__Logo" />
       </div>
       <TitleBookingPage>
-        <h1>Booking Request</h1>
+        <h1>Booking Request {props.id}</h1>
       </TitleBookingPage>
 
       <div className="BookingPage__Main">

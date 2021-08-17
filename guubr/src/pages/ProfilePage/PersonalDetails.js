@@ -75,7 +75,7 @@ function PersonalDetails(props) {
                 />
                 <Link to={`/edit-profile/details/${props.id}`}  style={{ width: '100%', marginBottom: "16px" }}><SecondaryButton>Edit Profile</SecondaryButton></Link>
 
-                <Link to="/book-specialist" style={{ width: '100%' }}><PrimaryButton>Book</PrimaryButton></Link>
+                <Link to={`/book/${props.id}`} style={{ width: '100%' }}><PrimaryButton>Book</PrimaryButton></Link>
 
 
             </div>

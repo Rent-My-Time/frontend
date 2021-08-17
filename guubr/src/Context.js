@@ -3,37 +3,19 @@ import firebase from './firebase';
 // import * as FirestoreService from './services/firestore';
 import 'firebase/auth';
 
-export const MyContext = createContext();
+export const MyContext = createContext({});
 
 const ContextProvider = ({ children }) => {
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState();
     const [userID, setUserId] = useState();
     const [specialtyList, setSpecialtyList] = useState();
+    useEffect(()=>{
+        setUser({})
+    }, [] )
 
-    useEffect(() => {
-        firebase.auth().onAuthStateChanged((user) => {
-              if (user) {
-                setUser(user);
-              } else {
-                setUser(null);
-              }
-            });
-    }, [user])
- 
-/**   
-    useEffect(() => {
-        if (usersListId) { 
-            FirestoreService.getUsersList(usersListId)
-            .then (usersList => {
-                console.log("called getUsersList");
-            })
-        }
-    })
-***/
 
-    const initialState = { user };
     return (
-        <MyContext.Provider value={initialState}>{children}</MyContext.Provider>
+        <MyContext.Provider value={[user, setUser]}>{children}</MyContext.Provider>
     );
 };
 

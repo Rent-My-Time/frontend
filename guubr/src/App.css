@@ -8,6 +8,8 @@ html {
   --guubr-letter5: #BADA54;
   --guubr-almost-white: #F8F8Fb;
   --guubr-almost-gray: #F4F4F4;
+  --guubr-input-field-blue: red;
+  --guubr-input-field-blueORIG: #a6a6a6;
 }
 body {
   width: 100%;

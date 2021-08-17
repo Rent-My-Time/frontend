@@ -1,3 +1,11 @@
+/* Chrome, Safari, Edge, Opera - this allows the arrows to be sticky for the hours input field*/
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {  
+
+  opacity: 1;
+}
+
+
 .BookingPage__Container {
   width: 100%;
   height: 100%;
@@ -38,6 +46,8 @@ form {
 
 .BookingPage__Form {
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-evenly;
   width: 100%;
   margin: 0 auto;
@@ -121,5 +131,5 @@ label {
 }
 #appt_length {
   color: var(--guubr-letter1);
-  width: 6em;
+  width: 4em;
 }

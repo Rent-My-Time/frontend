@@ -50,6 +50,7 @@ function BookingPage() {
             </div>
           </div>
 
+ 
           <div className="BookingPage__Form">
             <div className="BookingPage__Column__Three">
               <label htmlFor="appt_date">Date</label>
@@ -60,16 +61,17 @@ function BookingPage() {
             <div className="BookingPage__Column__Three">
               <label htmlFor="appt_time">Select a Time</label>
               <input type="time" id="appt_time" name="appt_time" 
-                 min="00:00" max="24:00" required></input>
+                min="00:00" max="24:00" required></input>
             </div>
 
             <div className="BookingPage__Column__Three">
               <label htmlFor="appt_length">Total Hours?</label>
               <input type="number" id="appt_length" name="appt_length"
-                 min="1" max="48"
-                 step=".5" placeholder="1"></input>
+                min="1" max="48"
+                step=".5" placeholder="1"></input>
             </div>
           </div>
+
 
           <div className="BookingPage__Form">
             <div className="BookingPage__Column__One">
@@ -108,7 +110,7 @@ function BookingPage() {
               <label htmlFor="comments">Comments</label>
               <PrimaryTextArea
                 type="text" name="comments" id="comments"
-                placeholder="Add your comments here"
+                placeholder="Add additional comments here"
               />
             </div>
           </div>

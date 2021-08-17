@@ -1,5 +1,4 @@
 import React, {useState, useContext, useRouteMatch } from 'react';
-import React, { useContext, useRouteMatch } from 'react';
 import Header from '../components/Header';
 import Profile from '../components/home/Profile';
 import Skill from '../components/home/Skill';

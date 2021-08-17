@@ -51,44 +51,7 @@ function Home() {
                 photo={user.website}
               /></Link>)
         })}
-        {/* <Link to={`/my-info`} style={{ textDecoration: 'none' }}>
-          <Profile
-            name="Elina"
-            experties="Coach"
-            rate="199"
-            photo="/images/profile2.png"
-          />
-        </Link>
-        <Profile
-          name="Elina"
-          experties="Coach"
-          rate="199"
-          photo="/images/profile2.png"
-        />
-        <Profile
-          name="Elina"
-          experties="Coach"
-          rate="199"
-          photo="/images/profile2.png"
-        />
-        <Profile
-          name="Oleg"
-          experties="Dancer"
-          rate="115"
-          photo="/images/profile1.png"
-        />
-        <Profile
-          name="Oleg"
-          experties="Dancer"
-          rate="115"
-          photo="/images/profile1.png"
-        />
-        <Profile
-          name="Oleg"
-          experties="Dancer"
-          rate="115"
-          photo="/images/profile1.png"
-        /> */}
+        
       </Profiles>
       <More>
         <p>More</p>

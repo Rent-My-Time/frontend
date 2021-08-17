@@ -12,10 +12,7 @@ import LoginGooglePage from "./pages/LoginGooglePage";
 import AddUserPage from "./pages/AddUserPage";
 import UserListContextProvider from "./UserListContext";
 
-//db imports
-import firebase from "./firebase";
-import "firebase/firestore";
-import ProfileContextProvider from "./ProfileContext";
+
 
 function App() {
   return (

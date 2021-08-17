@@ -6,32 +6,37 @@ import ProfileWrapper from "../../components/reusableComponents/ProfileWrapper";
 import PrimaryTextArea from "../../components/reusableComponents/PrimaryTextArea";
 import PrimaryInput from "../../components/reusableComponents/PrimaryInput";
 import { useContext } from "react"
-import {ProfileContext}  from "../../ProfileContext"
+import { ProfileContext } from "../../ProfileContext"
 import firebase from "../../firebase";
 function EditPersonalDetails(props) {
-    const [formInfo, setFormInfo]  = useContext(ProfileContext)
+    const [formInfo, setFormInfo] = useContext(ProfileContext)
     const db = firebase.firestore();
-    const docRef = db.collection("users").doc(`${props.id}`);
+    const docRef = db.collection("userProfiles").doc(`${props.id}`);
 
 
     const handleInputChange = event => {
-        const { name, value } = event.target
-        setFormInfo({ ...formInfo, [name]: value })
+        const target = event.target
+        const name = target.name;
+        const value = target.value;
+        // console.log(target)
+        switch (name) {
+            case 'lastName':
+            case 'firstName':
+                setFormInfo({
+                    ...formInfo, fullName: {
+                        ...formInfo.fullName,
+                        [name]: value
+                    }
+                })
+                break;
+            default:
+                setFormInfo({ ...formInfo, [name]: value })
+        }
 
     }
     const saveForm = (e) => {
 
-        e.preventDefault()
-        console.log("HELLO")
-        const { fullName, nationality, ageGroup, maritalStatus, children, gender, languages, city, country, education } = formInfo
-        if (fullName) {
-            formInfo.fullName = {
-                firstName: formInfo.fullName.firstName,
-                lastName: formInfo.fullName.lastName
-            }
-
-        }
-        if (!fullName || !nationality || !ageGroup || !maritalStatus || !children || !gender || !languages || !city || !country || !education) return
+        e.preventDefault();
         setFormInfo(formInfo)
         docRef.set(formInfo)
         console.log(formInfo)
@@ -86,10 +91,10 @@ function EditPersonalDetails(props) {
                         <h3>Children</h3>
 
                         <select name="children" value={formInfo && formInfo.children} className={styles['PrimarySelect']} onChange={handleInputChange}>
-                            <option value='0'>None</option>
-                            <option value='1'>1</option>
-                            <option value='2'>2</option>
-                            <option value='3'>3</option>
+                            <option value={0}>None</option>
+                            <option value={1}>1</option>
+                            <option value={2}>2</option>
+                            <option value={3}>3</option>
                             <option value={formInfo && formInfo.children > 3}>More than 3</option>
                         </select>
                     </div>
@@ -140,7 +145,7 @@ function EditPersonalDetails(props) {
                     photo={formInfo && formInfo.profileImage}
                 />
                 <div style={{ width: "100%", marginBottom: "16px" }}>
-                    < PrimaryButton onClick={(ev)=> saveForm(ev)}>Save Changes</ PrimaryButton>
+                    < PrimaryButton onClick={(ev) => saveForm(ev)}>Save Changes</ PrimaryButton>
                 </div>
                 <Link to={`/profile/details/${props.id}`} style={{ width: '100%' }}><SecondaryButton>Discard Changes</SecondaryButton></Link>
 

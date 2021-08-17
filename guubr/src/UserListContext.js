@@ -9,7 +9,7 @@ const UserListContextProvider = ({children}) => {
     const db = firebase.firestore();
 
     useEffect(() => {
-        const usersRef = db.collection("users");
+        const usersRef = db.collection("userProfiles");
         usersRef
             .get()
             .then((snapshot) => {

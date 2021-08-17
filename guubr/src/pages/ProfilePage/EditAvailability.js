@@ -10,35 +10,40 @@ function EditAvailability(props) {
 
     const [formInfo, setFormInfo]  = useContext(ProfileContext)
     const db = firebase.firestore();
-    const docRef = db.collection("users").doc(`${props.id}`);
+    const docRef = db.collection("userProfiles").doc(`${props.id}`);
     const handleInputChange = event => {
         const target = event.target
         const name = target.name;
+        const checkedVal = target.checked;
+        const value = target.value;
         // console.log(target)
         switch (name) {
             case 'expert':
             case 'entry':
             case 'intermediate':
-                formInfo.expertise[name] = target.checked;
-                // console.log(target.type, name )
+                setFormInfo({...formInfo, expertise : {
+                    ...formInfo.expertise,
+                    [name]:checkedVal
+                }})
                 break;
             case 'phone':
             case 'email':
             case 'zoom':
             case 'office':
-                formInfo.contactMethods[name] = target.checked;
-                // console.log(target.type, name )
+
+                setFormInfo({...formInfo, contactMethods : {
+                    ...formInfo.contactMethods,
+                    [name]:checkedVal
+                }})
+
                 break;
             default:
+                setFormInfo({ ...formInfo, [name]: value })
         }
-        const value = target.value;
-        setFormInfo({ ...formInfo, [name]: value })
-        // console.log(formInfo)
+
     }
-    const saveForm = () => {
-        const { expertise, hourlyRate, networking, friends, other, contactMethods } = formInfo
-        // const { expert, intermediate, entry } = expertise
-        if (!expertise || !hourlyRate || !networking || !friends || !other || !contactMethods) return
+    const saveForm = (e) => {
+        e.preventDefault();
         setFormInfo(formInfo)
         console.log(formInfo, " SAVE FORM")
         docRef.set(formInfo)
@@ -120,7 +125,7 @@ function EditAvailability(props) {
                 </div>
                 <div className={styles['row']} style={{ justifyContent: "space-between", marginTop: "64px" }}>
                     <div style={{ width: '46%' }}>
-                        <PrimaryButton onClick={saveForm} >Save Changes</PrimaryButton>
+                        <PrimaryButton onClick={(ev) => saveForm(ev)} >Save Changes</PrimaryButton>
 
                     </div>
                     <div style={{ width: '46%' }}>

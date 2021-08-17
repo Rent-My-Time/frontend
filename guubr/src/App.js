@@ -24,7 +24,7 @@ function App() {
             <Route path="/" exact component={Home} />
             <Route path="/signup" exact component={AccountBox} />
             <Route path="/faq" exact component={FaqPage} />
-            <Route path="/booking" exact component={BookingPage} />
+            <Route path="/book/:id" exact component={BookingPage} />
 
             <Route path="/loginGoogle" exact component={LoginGooglePage} />
             <Route path="/addUser" exact component={AddUserPage} />

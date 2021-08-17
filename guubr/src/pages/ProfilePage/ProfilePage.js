@@ -7,7 +7,7 @@ import ContactDetails from './ContactDetails'
 import SpecialistFields from './SpecialistFields'
 import Availability from './Availability'
 import ProfileContextProvider from '../../ProfileContext'
-
+import BookingPage from "../BookingPage"
 function ProfilePage() {
     let { id } = useParams();
 
@@ -19,6 +19,7 @@ function ProfilePage() {
             <Router>
                 <Switch>
                     <Route path="/edit-profile/details/:id" exact component={EditProfilePage} />
+                    <Route path="/book/:id" exact ><BookingPage id={id}/></Route>
                     <div className={styles['profile-page']}>
                         <div className={styles['main-container']}>
                             <div className={styles['navigation-container']}>

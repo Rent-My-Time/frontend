@@ -1,4 +1,5 @@
 import React, {useState, useContext, useRouteMatch } from 'react';
+import React, { useContext, useRouteMatch } from 'react';
 import Header from '../components/Header';
 import Profile from '../components/home/Profile';
 import Skill from '../components/home/Skill';
@@ -20,9 +21,6 @@ function Home() {
                       'Analytics', 'Marketing', 'Writer', 'Designer'];
   const highlightedSkills = ['Model', 'Actor', 'Bartender', 'Security', 'Nanny', 'App Developer',
                             'Web Designer', 'Personal Assistant', 'Self Development'];
-
-console.log('search term = ', searchTerm)
-  console.log(userList)
 
   return (
     <Container>
@@ -81,10 +79,8 @@ console.log('search term = ', searchTerm)
         <p>More</p>
         <img src="/images/arrow-down.svg" alt="arrow icon" />
       </More>
-
       <Footer />
       <IconFooter />
-    
     </Container>
 
   );

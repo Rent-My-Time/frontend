@@ -1,6 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import React from "react";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import PrimaryButton from "./reusableComponents/PrimaryButton.js";
 
 function Header() {
   return (
@@ -11,10 +12,10 @@ function Header() {
           <h2>Log In</h2>
         </Link>
         <Link to="/signup">
-          <h2 className="signup">Sign Up</h2>
+          <PrimaryButton className="signup">Sign Up</PrimaryButton>
         </Link>
-        <Link to="/booking">
-          <h2>Booking</h2>
+        <Link to="/loginGoogle">
+          <h2>GoogleLOGIN</h2>
         </Link>
       </div>
     </Container>
@@ -37,6 +38,7 @@ const Container = styled.nav`
     justify-content: space-between;
     align-items: center;
     min-width: 220px;
+    gap: 8px;
 
     @media (max-width: 460px) {
       flex-direction: column;

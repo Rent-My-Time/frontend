@@ -1,0 +1,30 @@
+/* BASE STYLES */
+html {
+  background-color: #ffffff;
+  --guubr-letter1: #FF403F;
+  --guubr-letter2: #24DBC2;
+  --guubr-letter3: #1C37C2;
+  --guubr-letter4: #2D302F;
+  --guubr-letter5: #BADA54;
+  --guubr-almost-white: #F8F8Fb;
+  --guubr-almost-gray: #F4F4F4;
+  --guubr-input-field-blue: red;
+  --guubr-input-field-blueORIG: #a6a6a6;
+}
+body {
+  width: 100%;
+  height: 100vh;
+  font-family: Helvetica, Arial, sans-serif;
+}
+p {
+  font-size: 12px;
+}
+h1 {
+  font-size: 24px;
+}
+h2 {
+  font-size: 20px;
+}
+h3 {
+  font-size: 16px;
+}

@@ -13,5 +13,35 @@
         "languages":["English", "Russian", "Polish", "Ukrainian"],
         "education": "Master Degree Management & Marketing, Psychology",
         "city": "Los Angeles",
-        "country": "USA"
+        "country": "USA",
+        "telephone": 6264769069,
+        "email": "BallroomDancingLA@hotmail.com",
+        "websites": "www.DanceWithOleg.com",
+        "offices": "56 E Duarte rd Arcadia, CA 91006",
+        "socialmedia": {
+            "youtube":"https://www.youtube.com",
+            "facebook": "https://www.facebook.com",
+            "linkedin": "https://www.linkedin.com",
+            "instagram": "https://www.instagram.com",
+            "tiktok": "https://www.tiktok.com"
+        },
+        "skills":{
+            "expert": ["dancing", "marketing", "management"],
+            "intermediate": ["painting", "cooking"],
+            "entry": ["standup", "swimming"]
+        },
+        "expertise":{
+            "expert": true,
+            "intermediate": true,
+            "entry": false
+        },
+        "networking":true,
+        "friends": true,
+        "other" : "You can also reach me by Facebook messenger.",
+        "contactMethods": {
+            "phone": true,
+            "email": true,
+            "zoom": false,
+            "office": false
+        }
     }

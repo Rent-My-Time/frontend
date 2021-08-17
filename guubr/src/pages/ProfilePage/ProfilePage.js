@@ -1,214 +1,45 @@
-import React, { useState, useEffect } from "react";
-import * as styles from "./ProfilePage.module.css";
-import data from "../../data.json";
+import React from 'react'
+import * as styles from "./ProfilePage.module.css"
+import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch, useParams } from 'react-router-dom'
+import PersonalDetails from './PersonalDetails'
+import EditProfilePage from './EditProfilePage'
+import ContactDetails from './ContactDetails'
+import SpecialistFields from './SpecialistFields'
+import Availability from './Availability'
+import ProfileContextProvider from '../../ProfileContext'
+import BookingPage from "../BookingPage"
 function ProfilePage() {
-  const [formInfo, setformInfo] = useState([]);
-  const [profileInfo, setProfileInfo] = useState([]);
-  useEffect(() => {
-    setformInfo(data);
-    setProfileInfo(data);
-  }, []);
-  console.log(profileInfo);
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setformInfo({ ...formInfo, [name]: value });
-  };
-  const saveForm = () => {
-    const {
-      firstName,
-      lastName,
-      nationality,
-      ageGroup,
-      maritalStatus,
-      children,
-      gender,
-      languages,
-      city,
-      country,
-      education,
-    } = formInfo;
-    if (
-      !firstName ||
-      !lastName ||
-      !nationality ||
-      !ageGroup ||
-      !maritalStatus ||
-      !children ||
-      !gender ||
-      !languages ||
-      !city ||
-      !country ||
-      !education
+    let { id } = useParams();
+
+
+
+
+    return (
+        <ProfileContextProvider>
+            <Router>
+                <Switch>
+                    <Route path="/edit-profile/details/:id" exact component={EditProfilePage} />
+                    <Route path="/book/:id" exact ><BookingPage id={id}/></Route>
+                    <div className={styles['profile-page']}>
+                        <div className={styles['main-container']}>
+                            <div className={styles['navigation-container']}>
+                                <Link to={`/profile/details/${id}`} className={styles['nav-link']}><h2>Personal<br />Details</h2></Link>
+                                <Link to={`/profile/contacts/${id}`} className={styles['nav-link']}><h2>Contact<br />Details</h2></Link>
+                                <Link to={`/profile/skills/${id}`} className={styles['nav-link']}><h2>Specialist<br />Fields</h2></Link>
+                                <Link to={`/profile/availability/${id}`} className={styles['nav-link']}><h2>Availability</h2></Link>
+                            </div>
+                            <div className={styles['nav-selector']}></div>
+                            <div className={styles['profile-form']}>
+                                <Route exact path={`/profile/details/:id`} ><PersonalDetails id={id}/></Route>
+                                <Route exact path={`/profile/contacts/:id`} ><ContactDetails id={id}/></Route>
+                                <Route exact path={`/profile/skills/:id`} ><SpecialistFields id={id}/></Route>
+                                <Route exact path={`/profile/availability/:id`} ><Availability id={id}/></Route>
+                            </div>
+                        </div>
+                    </div>
+                </Switch>
+            </Router>
+        </ProfileContextProvider>
     )
-      return;
-    console.log(formInfo, " SAVE FORM");
-  };
-  console.log(formInfo, "FORM");
-  return (
-    <div className={styles["profile-page"]}>
-      <div className={styles["main-container"]}>
-        <div className={styles["navigation-container"]}>
-          <h1>
-            Personal
-            <br />
-            Details
-          </h1>
-          <h1>
-            Contact
-            <br />
-            Details
-          </h1>
-          <h1>
-            Specialist
-            <br />
-            Fields
-          </h1>
-          <h1>Availability</h1>
-        </div>
-        <div className={styles["nav-selector"]}></div>
-        <div className={styles["profile-form"]}>
-          <div className={styles["input-container"]}>
-            <h2>Name</h2>
-            <form className={styles["form-row"]}>
-              <div className={styles["two-column"]}>
-                <input
-                  type="text"
-                  className="inputSearch"
-                  name="firstName"
-                  value={formInfo.firstName}
-                  onChange={handleInputChange}
-                />
-              </div>
-              <div className={styles["two-column"]}>
-                <input
-                  type="text"
-                  className="inputSearch"
-                  name="lastName"
-                  value={formInfo.lastName}
-                  onChange={handleInputChange}
-                />
-              </div>
-            </form>
-            <h2>Nationality</h2>
-            <form>
-              <input
-                type="text"
-                className="inputSearch"
-                name="nationality"
-                value={formInfo.nationality}
-                onChange={handleInputChange}
-              />
-            </form>
-
-            <form className={styles["form-row"]}>
-              <div className={styles["two-column"]}>
-                <h2>Age Group</h2>
-                <input
-                  type="text"
-                  className="inputSearch"
-                  name="ageGroup"
-                  value={formInfo.ageGroup}
-                  onChange={handleInputChange}
-                />
-              </div>
-              <div className={styles["two-column"]}>
-                <h2>Marital Status</h2>
-                <input
-                  type="text"
-                  className="inputSearch"
-                  name="maritalStatus"
-                  value={formInfo.maritalStatus}
-                  onChange={handleInputChange}
-                />
-              </div>
-            </form>
-            <form className={styles["form-row"]}>
-              <div className={styles["two-column"]}>
-                <h2>Children</h2>
-                <input
-                  type="text"
-                  className="inputSearch"
-                  name="children"
-                  value={formInfo.children}
-                  onChange={handleInputChange}
-                />
-              </div>
-              <div className={styles["two-column"]}>
-                <h2>Gender</h2>
-                <input
-                  type="text"
-                  className="inputSearch"
-                  name="gender"
-                  value={formInfo.gender}
-                  onChange={handleInputChange}
-                />
-              </div>
-            </form>
-            <h2>Languages</h2>
-            <form>
-              <input
-                type="text"
-                className="inputSearch"
-                name="languages"
-                value={formInfo.languages}
-                onChange={handleInputChange}
-              />
-            </form>
-            <h2>Location</h2>
-            <form className={styles["form-row"]}>
-              <div className={styles["two-column"]}>
-                <input
-                  type="text"
-                  className="inputSearch"
-                  name="city"
-                  value={formInfo.city}
-                  onChange={handleInputChange}
-                />
-              </div>
-              <div className={styles["two-column"]}>
-                <input
-                  type="text"
-                  className="inputSearch"
-                  name="country"
-                  value={formInfo.country}
-                  onChange={handleInputChange}
-                />
-              </div>
-            </form>
-            <h2>Education</h2>
-            <form>
-              <textarea
-                name="education"
-                value={formInfo.education}
-                onChange={handleInputChange}
-              ></textarea>
-            </form>
-          </div>
-          <div className={styles["button-container"]}>
-            <div className={styles["profile-picture"]}>
-              <img src={profileInfo.profileImage} alt="avatar" width="100%" />
-            </div>
-            <div className={styles["row"]}>
-              <h1> {profileInfo.profileName} </h1>
-              <div className={styles["column"]}>
-                <h2>{profileInfo.occupation} </h2>
-                <h2>{profileInfo.hourlyRate} /hr</h2>
-              </div>
-            </div>
-
-            <button className="buttonPlain">Update Avatar</button>
-            <button className="buttonPlain">Edit Gallery</button>
-            <button
-              className={styles["button-primary"]["buttonPlain"]}
-              onClick={saveForm}
-            >
-              Save Changes
-            </button>
-            <button className="buttonPlain">Discard Changes</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
 }
-export default ProfilePage;
+export default ProfilePage

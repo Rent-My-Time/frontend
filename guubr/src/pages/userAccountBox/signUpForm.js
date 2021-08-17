@@ -2,7 +2,7 @@
 import React, { useContext, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import {
      BoldLink,
 	BoxContainer,
@@ -71,7 +71,7 @@ const vpassword = (value) => {
 };
 
 
-export default function SignUpForm(props, {history}) {
+export default function SignUpForm(props) {
 
 	const { switchToSignIn } = useContext(AccountContext);
 
@@ -103,7 +103,10 @@ export default function SignUpForm(props, {history}) {
 
 	const[isLoggedIn, setIsLoggedIn] = useState("false");
 
-
+	let history = useHistory();
+	const handleClick = () => {
+	history.push("/home");
+	}
 
 	const onChangeFirstName = (e) => {
 		const firstName = e.target.value;
@@ -276,26 +279,35 @@ export default function SignUpForm(props, {history}) {
         	const password = user.password;
 		const firstName = user.firstName;
 
+
 	 	setSuccessful(false)
+
+		 firebase.auth().createUserWithEmailAndPassword( email, password)
+				.then((userCredential) => {
+						// Signed in
+					var user = userCredential.user;
+
+					console.log("user in the firebase userCredential.user", user)
+						// ...
+					setSuccessful(true)
+
+
+					history.push("/") //doing redirect here.
+
+
+
+
+				})
+					.catch((error) => {
+						var errorCode = error.code;
+						var errorMessage = error.message;
+						console.log(errorMessage);
+						// ..
+				});
 
 		console.log("handleRegister user", user);
 
-		db.collection("users")
-		.doc(email)
-		.set({
-			fullName: {
-				firstName: firstName,
-				lastName: lastName,
-				email: email,
-				password
-				}
-		}, {merge:true})
-		.then((doc) => {
-			console.log("Added record doc.data(): ", doc.data());
-		})
-		.catch((error) => {
-			console.error("Error adding email: ", error);
-		});
+
 
 
 
@@ -309,9 +321,10 @@ export default function SignUpForm(props, {history}) {
 	 			setSuccessful(false);
 	 		});
 		}
-		
+
 
 	 };
+
 
 	   let registeredUsers = [
 	  	 "giannimpe1@yahoo.com",
@@ -331,7 +344,6 @@ export default function SignUpForm(props, {history}) {
 		}
 
 
-
 	/*-----------------------   fix check for registred user ------------------   */
 		const  userExists = (email) =>  {
 		return new Promise(resolve => {
@@ -345,12 +357,9 @@ export default function SignUpForm(props, {history}) {
 				}
 			});
    		 });
-	}
+		}
 
 
-	if (isLoggedIn) {
-	return <Redirect to="/profile" />;
-	}
 
 
 	return (

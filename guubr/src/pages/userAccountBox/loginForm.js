@@ -2,8 +2,8 @@
 
 import React, { useContext, useState, useRef } from "react";
 import {useDispatch, useSelector} from "react-redux";
-import { Redirect } from 'react-router-dom';
-import { Link } from "react-router-dom";
+import { Redirect, Link } from 'react-router-dom';
+
 import {
     	BoldLink,
  	BoxContainer,
@@ -169,28 +169,13 @@ export default function LoginForm(props, {history}) {
 
 		const handleLogin = (e, email, password) => {
 				e.preventDefault();
-				
+
 
 				console.log(" HandleLogin formErrors= ", formErrors)
 				console.log(password)
 
 
-				firebase.auth().createUserWithEmailAndPassword( email, password)
-				.then((userCredential) => {
-						// Signed in
-					var user = userCredential.user;
-					console.log("user in the firebase userCredential.user", user)
-						// ...
-					history.push("/")
-
-
-				})
-					.catch((error) => {
-						var errorCode = error.code;
-						var errorMessage = error.message;
-						console.log(errorMessage);
-						// ..
-				});
+				
 
 
 				// if (formValid(formErrors) && isSubmitting) {

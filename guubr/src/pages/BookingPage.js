@@ -1,21 +1,24 @@
 /* 
-* form input code for time, date, number from
+* note: form input code for time, date, number from
 * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/time  
-*
-* Melissa
-* 8/16/2021
+* 8/16/2021 Melissa
 */
 
 import React from "react";
 import { ReactComponent as Guubr } from "../assets/GuuBr.svg";
+import { Link } from 'react-router-dom'
 import styled from 'styled-components';
 import "./BookingPage.css";
 import Footer from "../components/Footer";
 import PrimaryButton from "../components/reusableComponents/PrimaryButton.js";
 import PrimaryInput from "../components/reusableComponents/PrimaryInput.js";
 import PrimaryTextArea from "../components/reusableComponents/PrimaryTextArea.js";
+import { useContext } from "react";
+import {ProfileContext}  from "../ProfileContext"
 
 function BookingPage(props) {
+  const [formInfo] = useContext(ProfileContext);
+
   return (
     <div className="BookingPage__Container">
 
@@ -59,7 +62,7 @@ function BookingPage(props) {
             <div className="BookingPage__Column__Three">
               <label htmlFor="appt_date">Date</label>
               <input type="date" id="appt_date" name="appt_date"
-                min="2021-01-01" max="2030-12-31"></input>
+                min="2021-01-01" max="2030-12-31" required></input>
             </div>
 
             <div className="BookingPage__Column__Three">
@@ -119,9 +122,12 @@ function BookingPage(props) {
             </div>
           </div>
 
-          <PrimaryButton>Submit</PrimaryButton>
-            <input type></input>
-          
+          <BookingTotalDisplay>
+            <p>BOOKING {formInfo.fullName.firstName} {formInfo.fullName.lastName}</p>
+            <p>Hourly Rate: ${formInfo.hourlyRate}</p>
+          </BookingTotalDisplay>
+
+          <Link to={`/payment`} style={{ width: '100%' }}><PrimaryButton>Purchase</PrimaryButton></Link>         
         </form>      
       </div> 
       <Footer />
@@ -149,12 +155,30 @@ const TitleBookingPage = styled.div`
 
 const BookingProfileDisplay = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: enter;
+  align-items: center;
   margin-top: 5px;
   margin-bottom: 20px;
+  gap: 5px;
   font-weight: 100;
   color: var(--guubr-letter1);
+  @media (max-width: 768px) {
+    padding-left: 4px;
+    font-size: 12px;
+  }
+`;
+
+const BookingTotalDisplay = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  gap: 10px
+  font-weight: 100;
+  color: var(--guubr-letter3);
   @media (max-width: 768px) {
     padding-left: 4px;
     font-size: 12px;

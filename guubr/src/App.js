@@ -7,12 +7,11 @@ import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import AccountBox from "./pages/userAccountBox/index";
 import FaqPage from "./pages/FaqPage/FaqPage";
 import BookingPage from "./pages/BookingPage";
+import PaymentPage from "./pages/PaymentPage/PaymentPage";
 import EditProfilePage from "./pages/ProfilePage/EditProfilePage";
 import LoginGooglePage from "./pages/LoginGooglePage";
 import AddUserPage from "./pages/AddUserPage";
 import UserListContextProvider from "./UserListContext";
-
-
 
 function App() {
   return (
@@ -25,6 +24,7 @@ function App() {
             <Route path="/signup" exact component={AccountBox} />
             <Route path="/faq" exact component={FaqPage} />
             <Route path="/book/:id" exact component={BookingPage} />
+            <Route path="/payment" exact component={PaymentPage} />
 
             <Route path="/loginGoogle" exact component={LoginGooglePage} />
             <Route path="/addUser" exact component={AddUserPage} />

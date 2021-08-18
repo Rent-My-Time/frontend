@@ -13,8 +13,6 @@ import Footer from "../components/Footer";
 import PrimaryButton from "../components/reusableComponents/PrimaryButton.js";
 import PrimaryInput from "../components/reusableComponents/PrimaryInput.js";
 import PrimaryTextArea from "../components/reusableComponents/PrimaryTextArea.js";
-
-import { useContext } from "react";
 import {ProfileContext}  from "../ProfileContext"
 
 

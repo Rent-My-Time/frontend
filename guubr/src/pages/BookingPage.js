@@ -4,7 +4,7 @@
 * 8/16/2021 Melissa
 */
 
-import React from "react";
+import React, {useContext} from "react";
 import { ReactComponent as Guubr } from "../assets/GuuBr.svg";
 import { Link } from 'react-router-dom'
 import styled from 'styled-components';
@@ -13,8 +13,10 @@ import Footer from "../components/Footer";
 import PrimaryButton from "../components/reusableComponents/PrimaryButton.js";
 import PrimaryInput from "../components/reusableComponents/PrimaryInput.js";
 import PrimaryTextArea from "../components/reusableComponents/PrimaryTextArea.js";
+
 import { useContext } from "react";
 import {ProfileContext}  from "../ProfileContext"
+
 
 function BookingPage(props) {
   const [formInfo] = useContext(ProfileContext);

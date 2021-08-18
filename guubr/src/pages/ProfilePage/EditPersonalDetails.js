@@ -12,7 +12,7 @@ function EditPersonalDetails(props) {
     const [formInfo, setFormInfo] = useContext(ProfileContext)
     const db = firebase.firestore();
     const docRef = db.collection("userProfiles").doc(`${props.id}`);
-
+    let history = useHistory()
 
     const handleInputChange = event => {
         const target = event.target
@@ -39,6 +39,7 @@ function EditPersonalDetails(props) {
         e.preventDefault();
         setFormInfo(formInfo)
         docRef.set(formInfo)
+        history.push(`/profile/details/${props.id}`)
         console.log(formInfo)
     }
 

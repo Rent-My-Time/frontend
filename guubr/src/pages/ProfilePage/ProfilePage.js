@@ -16,8 +16,6 @@ function ProfilePage() {
 
     return (
         <ProfileContextProvider>
-            <Router>
-                <Switch>
                     <Route path="/edit-profile/details/:id" exact component={EditProfilePage} />
                     <Route path="/book/:id" exact ><BookingPage id={id}/></Route>
                     <div className={styles['profile-page']}>
@@ -37,8 +35,6 @@ function ProfilePage() {
                             </div>
                         </div>
                     </div>
-                </Switch>
-            </Router>
         </ProfileContextProvider>
     )
 }

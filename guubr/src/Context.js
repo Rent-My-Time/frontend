@@ -6,16 +6,26 @@ import 'firebase/auth';
 export const MyContext = createContext({});
 
 const ContextProvider = ({ children }) => {
-    const [user, setUser] = useState();
+    const [user, setUser] = useState(null);
     const [userID, setUserId] = useState();
     const [specialtyList, setSpecialtyList] = useState();
     useEffect(()=>{
-        setUser({})
-    }, [] )
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+                setUser(user)
+                console.log(user)
+            } else {
+                setUser(null)
+            }
+        });
+    }, [user] )
 
-
+    const initialState = {
+        user
+    };
+    
     return (
-        <MyContext.Provider value={[user, setUser]}>{children}</MyContext.Provider>
+        <MyContext.Provider value={initialState}>{children}</MyContext.Provider>
     );
 };
 

@@ -1,13 +1,41 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import PrimaryButton from "./reusableComponents/PrimaryButton.js";
-
+import { MyContext } from "../Context.js";
+import firebase from "firebase";
+import { ReactComponent as IconUser } from "../assets/user_circle_male_avatar_account_icon.svg";
 function Header() {
+  const { user } = useContext(MyContext)
+  console.log(user)
+  const logOut = (e) => {
+    e.preventDefault()
+    firebase.auth().signOut().then(() => {
+      // Sign-out successful.
+    }).catch((error) => {
+      // An error happened.
+    });
+  }
+  
+  if (user) {
+    return (
+      <Container>
+        <img src="/logo.png" alt="logo" />
+        <div>
+          <h3>{`Welcome ${user.displayName}`}</h3>
+
+          <Link to={`/profile/details/${user.email}`} style={{ textDecoration: 'none' }}>
+            <IconUser className="iconLogo" />
+          </Link>
+          <h2 onClick={(ev) => logOut(ev)}>Log Out</h2>
+        </div>
+      </Container>)
+  }
   return (
     <Container>
       <img src="/logo.png" alt="logo" />
       <div>
+
         <Link to="/signup">
           <h2>Log In</h2>
         </Link>
@@ -66,6 +94,12 @@ const Container = styled.nav`
       color: #313138;
     }
   }
+  .iconLogo {
+    width: 20px;
+    height: 20px;
+    margin: 0 30px;
+}
+
 `;
 
 export default Header;

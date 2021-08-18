@@ -6,7 +6,7 @@
 * 8/16/2021
 */
 
-import React from "react";
+import React, {useContext} from "react";
 import { ReactComponent as Guubr } from "../assets/GuuBr.svg";
 import styled from 'styled-components';
 import "./BookingPage.css";
@@ -14,6 +14,7 @@ import Footer from "../components/Footer";
 import PrimaryButton from "../components/reusableComponents/PrimaryButton.js";
 import PrimaryInput from "../components/reusableComponents/PrimaryInput.js";
 import PrimaryTextArea from "../components/reusableComponents/PrimaryTextArea.js";
+import {ProfileContext} from "../ProfileContext"
 
 function BookingPage(props) {
   return (

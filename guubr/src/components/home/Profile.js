@@ -4,7 +4,7 @@ import styled from "styled-components";
 function Profile(props) {
   return (
     <Container>
-      <img src={props.photo} alt="profile" />
+      <img src={`/images/${props.photo}`} alt="profile" />
       <Info>
         <Name>{props.name}</Name>
         <div>

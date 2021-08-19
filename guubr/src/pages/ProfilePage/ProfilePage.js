@@ -1,6 +1,6 @@
 import React from 'react'
 import * as styles from "./ProfilePage.module.css"
-import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch, useParams } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route, Link, useHistory, useParams } from 'react-router-dom'
 import PersonalDetails from './PersonalDetails'
 import EditProfilePage from './EditProfilePage'
 import ContactDetails from './ContactDetails'
@@ -8,16 +8,22 @@ import SpecialistFields from './SpecialistFields'
 import Availability from './Availability'
 import ProfileContextProvider from '../../ProfileContext'
 import BookingPage from "../BookingPage"
+import PaymentPage from "../PaymentPage/PaymentPage";
+
+import { ReactComponent as IconHouse } from "../../assets/home_house_icon.svg";
 function ProfilePage() {
     let { id } = useParams();
-
-
-
-
+    const history = useHistory()
+    const goBack = () => {
+      history.push("/")
+    }
     return (
         <ProfileContextProvider>
+            <Router>
+                <Switch>
                     <Route path="/edit-profile/details/:id" exact component={EditProfilePage} />
                     <Route path="/book/:id" exact ><BookingPage id={id}/></Route>
+                    <Route path="/payment/" exact ><PaymentPage id={id}/></Route>
                     <div className={styles['profile-page']}>
                         <div className={styles['main-container']}>
                             <div className={styles['navigation-container']}>
@@ -25,6 +31,8 @@ function ProfilePage() {
                                 <Link to={`/profile/contacts/${id}`} className={styles['nav-link']}><h2>Contact<br />Details</h2></Link>
                                 <Link to={`/profile/skills/${id}`} className={styles['nav-link']}><h2>Specialist<br />Fields</h2></Link>
                                 <Link to={`/profile/availability/${id}`} className={styles['nav-link']}><h2>Availability</h2></Link>
+                                
+                                <IconHouse style={{ width:"24px", alignSelf:"start", cursor:"pointer"}} onClick={goBack} />
                             </div>
                             <div className={styles['nav-selector']}></div>
                             <div className={styles['profile-form']}>
@@ -33,8 +41,12 @@ function ProfilePage() {
                                 <Route exact path={`/profile/skills/:id`} ><SpecialistFields id={id}/></Route>
                                 <Route exact path={`/profile/availability/:id`} ><Availability id={id}/></Route>
                             </div>
-                        </div>
+
+                        </div>                       
                     </div>
+                </Switch>
+            </Router>
+           
         </ProfileContextProvider>
     )
 }

@@ -96,7 +96,7 @@ function EditPersonalDetails(props) {
                             <option value={1}>1</option>
                             <option value={2}>2</option>
                             <option value={3}>3</option>
-                            <option value={formInfo && formInfo.children > 3}>More than 3</option>
+                            <option value={`More than 3`}>More than 3</option>
                         </select>
                     </div>
                     <div className={styles['two-column']}>

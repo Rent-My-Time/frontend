@@ -11,6 +11,7 @@ import IconFooter from '../../components/IconFooter';
 import Footer from '../../components/Footer';
 import { AccountContext } from './accountContext';
 
+//This file too
 
 // src/components/userAccountBox/index.js
 // src/components/userAccountBox/index.js
@@ -195,7 +196,7 @@ const InnerContainer =styled.div`
      width: 100%;;
      display: flex;
      flex-direction: column;
- 
+
 `;
 
 // ********** Animation BackDrop ***********

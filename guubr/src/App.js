@@ -12,11 +12,13 @@ import EditProfilePage from "./pages/ProfilePage/EditProfilePage";
 import LoginGooglePage from "./pages/LoginGooglePage";
 import AddUserPage from "./pages/AddUserPage";
 import UserListContextProvider from "./UserListContext";
+import BookingContextProvider from './BookingContext';
 
 function App() {
   return (
     <ContextProvider>
       <UserListContextProvider>
+        <BookingContextProvider>
 
         <Router>
           <Switch>
@@ -45,6 +47,7 @@ function App() {
             <Route path="/profile/" component={ProfilePage} />
           </Switch>
         </Router>
+       </BookingContextProvider>
       </UserListContextProvider>
     </ContextProvider>
   );

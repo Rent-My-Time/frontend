@@ -2,15 +2,16 @@ import React from 'react'
 import styled from "styled-components";
 import LoginForm from "./loginForm";
 import SignUpForm  from "./signUpForm";
-import {
-     BookingPage__Logo,
-     BookingPage__Header }
- from "./common";
+//import UserRegistration from "./userRegistration"
  import { ReactComponent as Guubr } from "../../assets/GuuBr.svg";
  import {motion } from "framer-motion";
 import { useState } from 'react';
+//import { AccountContext } from './accountContext';
+import IconFooter from '../../components/IconFooter';
+import Footer from '../../components/Footer';
 import { AccountContext } from './accountContext';
 
+//This file too
 
 // src/components/userAccountBox/index.js
 // src/components/userAccountBox/index.js
@@ -51,7 +52,7 @@ export default function AccountBox(props) {
      return (
           <AccountContext.Provider value={contextValue}>
                <ContainerDiv>
-                    <div className="BookingPage__Header">
+                    <div className="BookingPage__Header" >
                          <Guubr className="BookingPage__Logo" />
 
                     </div>
@@ -61,10 +62,11 @@ export default function AccountBox(props) {
                                    animate={isExpanded ? "expanded" : "collapsed"}
                                    variants={BackDropVariants}
                                    transition={ExpandingTransition}
+                                   className="backDrop"
                               />
                               {active === "signIn" && (
                                    <HeaderContainer>
-                                   <HeaderText>Welcome</HeaderText>
+                                   <HeaderText    HeaderContainer="var(--guubr-letter2)">Welcome</HeaderText>
                                    <HeaderText>Back</HeaderText>
                                    <SmallText>Please sign-in to continue!</SmallText>
                                    </HeaderContainer>
@@ -90,6 +92,8 @@ export default function AccountBox(props) {
                               {/* <p onClick={playExpandingAnimation} >clickMe</p> */}
                          </InnerContainer>
                     </BoxContainer>
+                    <Footer/>
+                    <IconFooter/>
                </ContainerDiv>
           </AccountContext.Provider>
      )
@@ -102,6 +106,8 @@ const ContainerDiv= styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: #edeef3;
+
 
 `
 // *******Container for the LogIn and SignUp Form ***********
@@ -111,10 +117,15 @@ const BoxContainer = styled.div`
   display: flex;
   flex-direction: column;
   border-radius: 4px;
-  background-color: #fff;
+  background: #ffffff;
   box-shadow: 0 0 2px rgba(15, 15, 15, 0.28);
   position: relative;
   overflow: hidden;
+  border: 1px solid rgb(2,0,36);
+  box-shadow: 5px -5px 10px rgba(217, 217, 217, 0.2),
+    -5px -5px 10px rgba(255, 255, 255, 0.9),
+    5px 5px 13px rgba(217, 217, 217, 0.9), 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 4% 2%;
 
 `
 // *********TopContainer that contain  BackDrop  Contain the title
@@ -126,6 +137,9 @@ const TopContainer = styled.div`
      justify-content: flex-end;
      padding: 0 1.8em;
      padding-bottom: 5em;
+
+
+
 `;
 
 
@@ -133,7 +147,7 @@ const TopContainer = styled.div`
 // ********** boX to create animation *****
 const BackDrop= styled(motion.div)`
      width: 200%;
-     height: 550px;
+     height: 580px;
      position: absolute;
      display: flex;
      flex-direction: column;
@@ -141,8 +155,9 @@ const BackDrop= styled(motion.div)`
      transform: rotate(333deg);
      top: -290px;
      left: -170px;
-     background: rgb(138,146,180);
-     background: linear-gradient(90deg, rgba(138,146,180,1) 100%, rgba(5,5,5,1) 100%);
+      border: 1px solid rgb(2,0,36);
+     background:  rgba(228,232,236,1)
+     /* color: rgba(228,232,236,1) ; */;
 `;
 
 const HeaderContainer = styled.div`
@@ -157,22 +172,31 @@ const HeaderText = styled.h2`
      -webkit-text-stroke: 0.1px rgb(2,0,36);
      font-weight: 600;
      line-height: 1.24;
-     color: #fff;
+
      z-index: 10;
      margin: 0;
+     font-size: 24px;
+     letter-spacing: 1px;
+     font-weight: 150;
+     text-transform: uppercase;
+
 `;
 
  const SmallText = styled.h5`
-     color: #fff;
      font-weight: 500;
-     font-size: 11px;
+     font-size: 14px;
+      letter-spacing: 1px;
+     font-weight: 150;
      z-index: 10;
+     color:  --guubr-letter1;
+
  `;
 
 const InnerContainer =styled.div`
      width: 100%;;
      display: flex;
      flex-direction: column;
+
 `;
 
 // ********** Animation BackDrop ***********
@@ -182,6 +206,7 @@ const InnerContainer =styled.div`
            height: "1050px",
            borderRadius: "20%",
            transform: "rotate(333deg)"
+
 
       },
       collapsed: {

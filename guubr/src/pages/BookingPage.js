@@ -34,6 +34,7 @@ function BookingPage(props) {
     const target = event.target
     const name = target.name;
     const value = target.value;
+    let hourly_rate = 0;
 
     switch (name) {
         case 'lastName':
@@ -48,8 +49,10 @@ function BookingPage(props) {
         case 'availabilityType':
         case 'adress':
         case 'comments':
-            console.log("bookingPage: handleInputChange: switch on name: ", {name});
             setBookFormInfo({ ...bookFormInfo, [name]: value});
+            hourly_rate = formInfo.hourlyRate;
+            console.log("bookingPage: handleInputChange: switch on name: ", {name});
+            console.log("handleInputChange: bookFormInfo:  ", bookFormInfo);
             break;
         default:
             console.log("bookingPage: handleInputChange: switch DEFAULT");

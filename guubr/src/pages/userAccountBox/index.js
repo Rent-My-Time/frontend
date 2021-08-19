@@ -106,9 +106,7 @@ const ContainerDiv= styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #edeef3;
-
-
+    background-color: #ffffff;
 `
 // *******Container for the LogIn and SignUp Form ***********
 const BoxContainer = styled.div`

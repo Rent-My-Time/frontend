@@ -14,7 +14,8 @@ import PrimaryButton from "../components/reusableComponents/PrimaryButton.js";
 import SecondaryButton from "../components/reusableComponents/SecondaryButton.js";
 import PrimaryInput from "../components/reusableComponents/PrimaryInput.js";
 import PrimaryTextArea from "../components/reusableComponents/PrimaryTextArea.js";
-import { ProfileContext } from "../ProfileContext";
+import {ProfileContext}  from "../ProfileContext"
+
 
 
 function BookingPage(props) {
@@ -133,7 +134,7 @@ function BookingPage(props) {
           </BookingTotalDisplay>
 
           <Link to={`/payment`} style={{ width: '100%' }}><PrimaryButton>Purchase</PrimaryButton></Link>
-          <SecondaryButton style={{ marginTop: '16px',  }} onClick={goBack}>Cancel</SecondaryButton>
+          <SecondaryButton style={{ marginTop: '16px'  }} onClick={goBack}>Cancel</SecondaryButton>
         </form>
       </div>
       <Footer />

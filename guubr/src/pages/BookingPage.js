@@ -4,7 +4,7 @@
 * 8/16/2021 Melissa
 */
 
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import { ReactComponent as Guubr } from "../assets/GuuBr.svg";
 import { Link } from 'react-router-dom'
 import styled from 'styled-components';
@@ -13,14 +13,12 @@ import Footer from "../components/Footer";
 import PrimaryButton from "../components/reusableComponents/PrimaryButton.js";
 import PrimaryInput from "../components/reusableComponents/PrimaryInput.js";
 import PrimaryTextArea from "../components/reusableComponents/PrimaryTextArea.js";
-
-import { useContext } from "react";
-import {ProfileContext}  from "../ProfileContext"
+import { ProfileContext } from "../ProfileContext"
 
 
 function BookingPage(props) {
-  const [formInfo] = useContext(ProfileContext);
-
+  const [formInfo, setFormInfo] = useContext(ProfileContext)
+  console.log(formInfo, "PROFILE CONTEXT")
   return (
     <div className="BookingPage__Container">
 
@@ -40,26 +38,26 @@ function BookingPage(props) {
           <div className="BookingPage__Form">
             <div className="BookingPage__Column">
               <label htmlFor="firstName">First Name</label>
-              <PrimaryInput type="text" name="firstName" id="firstName"/>
+              <PrimaryInput type="text" name="firstName" id="firstName" />
             </div>
             <div className="BookingPage__Column">
               <label htmlFor="lastName">Last Name</label>
-              <PrimaryInput type="text" name="lastName" id="lastName"/>
+              <PrimaryInput type="text" name="lastName" id="lastName" />
             </div>
           </div>
 
           <div className="BookingPage__Form">
             <div className="BookingPage__Column">
               <label htmlFor="email">Email</label>
-              <PrimaryInput type="email" name="email" id="email"/>
+              <PrimaryInput type="email" name="email" id="email" />
             </div>
             <div className="BookingPage__Column">
               <label htmlFor="phone">Phone</label>
-              <PrimaryInput type="text" name="phone" id="phone"/>
+              <PrimaryInput type="text" name="phone" id="phone" />
             </div>
           </div>
 
- 
+
           <div className="BookingPage__Form">
             <div className="BookingPage__Column__Three">
               <label htmlFor="appt_date">Date</label>
@@ -69,7 +67,7 @@ function BookingPage(props) {
 
             <div className="BookingPage__Column__Three">
               <label htmlFor="appt_time">Select a Time</label>
-              <input type="time" id="appt_time" name="appt_time" 
+              <input type="time" id="appt_time" name="appt_time"
                 min="00:00" max="24:00" required></input>
             </div>
 
@@ -86,15 +84,15 @@ function BookingPage(props) {
             <div className="BookingPage__Column__One">
               <label htmlFor="jobRequest">Job Description</label>
               <PrimaryInput type="text" name="jobRequest" id="jobRequest"
-              placeholder="Details" />
+                placeholder="Details" />
             </div>
           </div>
 
           <div className="BookingPage__Form">
             <div className="BookingPage__Column__One">
               <label htmlFor="expertiseLevel">Expertise Level</label>
-              <PrimaryInput type="text" name="expertiseLevel" id="expertiseLevel" 
-              placeholder="Expert/Intermediate/Entry Level/Networking/Making A New Friend"/>
+              <PrimaryInput type="text" name="expertiseLevel" id="expertiseLevel"
+                placeholder="Expert/Intermediate/Entry Level/Networking/Making A New Friend" />
             </div>
           </div>
 
@@ -102,7 +100,7 @@ function BookingPage(props) {
             <div className="BookingPage__Column__One">
               <label htmlFor="availabilityType">Availability</label>
               <PrimaryInput type="text" name="availabilityType" id="availabilityType"
-              placeholder="Phone/Zoom/In-Person(Your)/In-Person(My)/In-Person(3rd Loc)"/>
+                placeholder="Phone/Zoom/In-Person(Your)/In-Person(My)/In-Person(3rd Loc)" />
             </div>
           </div>
 
@@ -110,7 +108,7 @@ function BookingPage(props) {
             <div className="BookingPage__Column__One">
               <label htmlFor="address">Specify Location</label>
               <PrimaryInput type="text" name="address" id="address"
-              placeholder="Address"/>
+                placeholder="Address" />
             </div>
           </div>
 
@@ -125,15 +123,15 @@ function BookingPage(props) {
           </div>
 
           <BookingTotalDisplay>
-            <p>BOOKING {formInfo.fullName.firstName} {formInfo.fullName.lastName}</p>
-            <p>Hourly Rate: ${formInfo.hourlyRate}</p>
+            <p>BOOKING {formInfo && formInfo.fullName.firstName} {formInfo && formInfo.fullName.lastName}</p>
+            <p>Hourly Rate: ${formInfo && formInfo.hourlyRate}</p>
           </BookingTotalDisplay>
 
-          <Link to={`/payment`} style={{ width: '100%' }}><PrimaryButton>Purchase</PrimaryButton></Link>         
-        </form>      
-      </div> 
+          <Link to={`/payment`} style={{ width: '100%' }}><PrimaryButton>Purchase</PrimaryButton></Link>
+        </form>
+      </div>
       <Footer />
-    </div>  
+    </div>
   );
 }
 

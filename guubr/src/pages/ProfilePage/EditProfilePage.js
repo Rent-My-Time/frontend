@@ -14,7 +14,6 @@ function EditProfilePage() {
     return (
         <div>
             <ProfileContextProvider>
-
                 <Route path="/profile/details/:id" exact ><ProfilePage /></Route>
                 <Route path="/profile/contacts/:id" exact ><ProfilePage /></Route>
                 <Route path="/profile/skills/:id" exact ><ProfilePage /></Route>
@@ -38,7 +37,6 @@ function EditProfilePage() {
                         </div>
                     </div>
                 </div>
-
             </ProfileContextProvider>
         </div>
 

@@ -22,6 +22,8 @@ import LoginGooglePage from "../LoginGooglePage";
 import { useEffect } from "react";
 
 
+//Add this to the old file
+
 
 const required = (value) => {
 		if (!value) {
@@ -175,7 +177,7 @@ export default function LoginForm(props, {history}) {
 				console.log(password)
 
 
-				
+
 
 
 				// if (formValid(formErrors) && isSubmitting) {

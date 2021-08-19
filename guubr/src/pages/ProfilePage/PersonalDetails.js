@@ -4,8 +4,8 @@ import { Link, useParams } from 'react-router-dom'
 import SecondaryButton from "../../components/reusableComponents/SecondaryButton";
 import PrimaryButton from "../../components/reusableComponents/PrimaryButton";
 import ProfileWrapper from "../../components/reusableComponents/ProfileWrapper";
-import { ProfileContext } from "../../ProfileContext"
-import { MyContext } from "../../Context"
+import { ProfileContext } from "../../ProfileContext";
+import { MyContext } from "../../Context";
 function PersonalDetails(props) {
 
     const { user } = useContext(MyContext)

@@ -1,12 +1,12 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 function ProfileWrapper(props) {
   return (
     <Container>
-      <img src={props.photo} alt="profile" />
+      <img src={`/images/${props.photo}`} alt="profile" />
       <Info>
-        <h2>{props.name}</h2>
+        <Name>{props.name}</Name>
         <div>
           <div>{props.experties}</div>
           <div>${props.rate}/hr</div>
@@ -20,8 +20,8 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  min-width:40%;
+  width: 290px;
+  min-width: 40%;
   max-height: 360px;
   margin: 20px 0px;
   background: #f7f7f7;
@@ -45,7 +45,7 @@ const Info = styled.div`
   color: black;
   font-size: 12px;
   div {
-    text-align:end;
+    text-align: end;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -56,5 +56,9 @@ const Info = styled.div`
   }
 `;
 
+const Name = styled.div`
+  font-weight: 600;
+  font-size: 20px;
+`;
 
 export default ProfileWrapper;

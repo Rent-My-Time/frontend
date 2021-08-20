@@ -42,8 +42,6 @@ function PaymentPage() {
           <SomeBigSpace>
           </SomeBigSpace>
       </ShowPaymentOptions>
-      <Footer />
-      <IconFooter />
     </div>
     );
 }

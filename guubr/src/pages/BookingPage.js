@@ -193,7 +193,6 @@ function BookingPage(props) {
             <SecondaryButton style={{ marginTop: '16px'  }} onClick={goBack}>Cancel</SecondaryButton>
           </form>
         </div>
-        <Footer />
       </div>
   );
 }

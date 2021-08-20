@@ -371,6 +371,7 @@ function SignUpForm() {
 						networking: false,
 						friends: false,
 						other: "",
+						pic:"light turquoise default profile picture.jpg",
 						contactMethods: {
 							phone: false,
 							email: false,

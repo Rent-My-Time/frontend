@@ -5,14 +5,14 @@ import PrimaryButton from "../../components/reusableComponents/PrimaryButton";
 import { useContext } from "react"
 import { ProfileContext } from "../../ProfileContext"
 import PrimaryInput from "../../components/reusableComponents/PrimaryInput";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import firebase from "../../firebase";
 function EditContactDetails(props) {
 
     const [formInfo, setFormInfo] = useContext(ProfileContext)
     const db = firebase.firestore();
     const docRef = db.collection("userProfiles").doc(`${props.id}`);
-
+    let history = useHistory()
     const handleInputChange = event => {
         const target = event.target
         const name = target.name;
@@ -37,6 +37,7 @@ function EditContactDetails(props) {
         setFormInfo(formInfo)
         console.log(formInfo)
         docRef.set(formInfo)
+        history.push(`/profile/contacts/${props.id}`)
 
     }
 

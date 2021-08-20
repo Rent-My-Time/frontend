@@ -5,9 +5,9 @@ import PrimaryInput from "../../components/reusableComponents/PrimaryInput";
 import SecondaryButton from "../../components/reusableComponents/SecondaryButton";
 import PrimaryButton from "../../components/reusableComponents/PrimaryButton";
 import firebase from "../../firebase";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 function EditAvailability(props) {
-
+    let history = useHistory()
     const [formInfo, setFormInfo]  = useContext(ProfileContext)
     const db = firebase.firestore();
     const docRef = db.collection("userProfiles").doc(`${props.id}`);
@@ -47,6 +47,7 @@ function EditAvailability(props) {
         setFormInfo(formInfo)
         console.log(formInfo, " SAVE FORM")
         docRef.set(formInfo)
+        history.push(`/profile/availability/${props.id}`)
     }
     //console.log(formInfo, "FORM") 
     return (

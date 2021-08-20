@@ -42,9 +42,6 @@ function Header() {
         <Link to="/signup">
           <PrimaryButton className="signup">Sign Up</PrimaryButton>
         </Link>
-        <Link to="/loginGoogle">
-          <h2>GoogleLOGIN</h2>
-        </Link>
       </div>
     </Container>
   );

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import * as styles from "./ProfilePage.module.css"
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import PrimaryButton from "../../components/reusableComponents/PrimaryButton";
 import PrimaryInput from '../../components/reusableComponents/PrimaryInput';
 import SecondaryButton from "../../components/reusableComponents/SecondaryButton";
@@ -16,6 +16,7 @@ function EditSpecialistFields(props) {
     const [skill, setSkill] = useState('')
     const [level, setLevel] = useState("expert")
     let message = '';
+    let history = useHistory()
     const db = firebase.firestore();
     const docRef = db.collection("userProfiles").doc(`${props.id}`);
 
@@ -57,6 +58,7 @@ function EditSpecialistFields(props) {
         setFormInfo(formInfo)
         console.log(formInfo)
         docRef.set(formInfo)
+        history.push(`/profile/skills/${props.id}`)
     }
 
     const handleKeyPress = e => {

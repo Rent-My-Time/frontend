@@ -5,15 +5,18 @@ import PrimaryButton from "../../components/reusableComponents/PrimaryButton";
 import ProfileWrapper from "../../components/reusableComponents/ProfileWrapper";
 import PrimaryTextArea from "../../components/reusableComponents/PrimaryTextArea";
 import PrimaryInput from "../../components/reusableComponents/PrimaryInput";
-import { useContext } from "react"
+import { useContext, useState, useEffect } from "react"
 import { ProfileContext } from "../../ProfileContext"
 import firebase from "../../firebase";
 function EditPersonalDetails(props) {
     const [formInfo, setFormInfo] = useContext(ProfileContext)
+    const [language, setLanguage] = useState("English")
     const db = firebase.firestore();
     const docRef = db.collection("userProfiles").doc(`${props.id}`);
     let history = useHistory()
-
+    useEffect(() => {
+        
+    }, [language])
     const handleInputChange = event => {
         const target = event.target
         const name = target.name;
@@ -29,23 +32,47 @@ function EditPersonalDetails(props) {
                     }
                 })
                 break;
+            case 'languages':
+                setLanguage(value)
+                break;
             default:
                 setFormInfo({ ...formInfo, [name]: value })
         }
 
     }
-    const saveForm = (e) => {
 
+    const addLanguage = (e) => {
+
+        e.preventDefault()
+        if(formInfo.languages.includes(language)){
+            return alert(`${language} already exists`)
+        } else {
+            setFormInfo({
+                ...formInfo, languages: formInfo.languages.concat(language)
+            })
+        }
+        console.log(formInfo.languages)
+    }
+    const deleteLanguage =(e) =>{
+         e.preventDefault()
+
+        let language = e.target.value
+        formInfo.languages = formInfo.languages.filter(item => item !== language)
+        setFormInfo({    ...formInfo, language:formInfo.languages})
+        console.log(formInfo)  
+    }
+
+    const saveForm = (e) => {
         e.preventDefault();
         setFormInfo(formInfo)
         docRef.set(formInfo)
         history.push(`/profile/details/${props.id}`)
         console.log(formInfo)
+
     }
 
     return (
         <div className={styles['personal-details']}>
-
             <div className={styles['input-container']}>
 
                 <h3>Name</h3>
@@ -110,9 +137,42 @@ function EditPersonalDetails(props) {
                         </select>
                     </div>
                 </form>
-                <h3>Languages</h3>
-                <form >
-                    <PrimaryInput type="text" name="languages" value={formInfo && formInfo.languages} onChange={handleInputChange} />
+                <form className={styles['form-row']}>
+                    <div className={styles['two-column']}>
+                        <h3>Languages</h3>
+                        <div className={styles['form-row']}>
+                            <select name="languages"placeholder="Add a Language" value={language} className={styles['PrimarySelect']} onChange={handleInputChange}>
+                                <option value="English">English</option>
+                                <option value="Mandarin">Mandarin</option>
+                                <option value="Hindi">Hindi</option>
+                                <option value="Spanish">Spanish</option>
+                                <option value="French">French</option>
+                                <option value="Arabic">Arabic</option>
+                                <option value="Bengali">Bengali</option>
+                                <option value="Russian">Russian</option>
+                                <option value="Portuguese">Portuguese</option>
+                                <option value="Indonesian">Indonesian</option>
+                                <option value="German">German</option>
+                                <option value="Vietnamese">Vietnamese</option>
+                                <option value="Italian">Italian</option>
+                                <option value="Polish">Polish</option>
+                                <option value="Ukrainian">Ukrainian</option>
+                                <option value="Dutch">Dutch</option>
+                                <option value="Thai">Thai</option>
+                                <option value="Tagalog">Tagalog</option>
+                                <option value="Somali">Somali</option>
+                                <option value="Greek">Greek</option>
+                            </select>
+                            <PrimaryButton style={{ width: '50%', marginLeft: "24px" }} onClick={(ev) => addLanguage(ev)}>Add</PrimaryButton>
+                        </div>
+                    </div>
+                    <div className={styles['two-column']}>
+                    <h3><br></br></h3>
+                    <div className={styles['form-row']} style={{flexWrap:'wrap', alignItems: "center", border: "2px solid lightgrey", padding: "12px 16px" }}>
+                    {formInfo && formInfo.languages.map(language => <button value={language} onClick={(ev)=>deleteLanguage(ev)} className={styles['delete-lang']}>{language}</button>)}
+                    {/* <PrimaryInput value={formInfo && formInfo.languages.join(" ")} onChange={handleInputChange} /> */}
+                    </div>
+                    </div>
                 </form>
                 <h3>Location</h3>
 

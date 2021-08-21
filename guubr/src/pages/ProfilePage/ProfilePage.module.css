@@ -294,3 +294,30 @@
   .row-items p {
     margin-right: 8px;
   }
+  .delete-lang {
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 12px;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 4px 12px 0px 0px;
+    background: none;
+  }
+  
+  .delete-lang:hover,
+  .delete-lang:focus {
+    display: inline-block;
+    content: '\00d7';
+    color: #e60000;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .delete-lang:hover::after {
+    text-transform: none;
+    margin-left: 8px;
+    content: 'Delete';
+    color: white;
+    padding: 4px;
+    background-color: #e60000;
+    border-radius: 4px;
+  }

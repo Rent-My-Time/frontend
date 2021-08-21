@@ -54,7 +54,6 @@ function PersonalDetails(props) {
             <h3>Languages</h3>
             <div className={styles['row']}>
               {formInfo &&
-                formInfo.languages &&
                 formInfo.languages.map((language, index) => (
                   <p key={index}>{language}</p>
                 ))}

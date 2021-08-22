@@ -13,6 +13,7 @@ import LoginGooglePage from "./pages/LoginGooglePage";
 import AddUserPage from "./pages/AddUserPage";
 import UserListContextProvider from "./UserListContext";
 import BookingContextProvider from './BookingContext';
+import Header from "./components/Header";
 
 function App() {
   return (

@@ -44,47 +44,44 @@ function EditContactDetails(props) {
     return (
         <div className={styles['contact-details']}>
             <div className={styles['input-container']}>
-                <h3>Telephone</h3>
-                <form>
-                    <PrimaryInput type="text" name="telephone" value={formInfo && formInfo.telephone} onChange={handleInputChange} />
-                </form>
-                <h3>Email</h3>
-                <form >
-                    <PrimaryInput type="text" name="email" value={formInfo && formInfo.email} onChange={handleInputChange} />
-                </form>
-                <h3>Websites</h3>
-                <form className={styles['row']}>
-                    <div style={{ width: '100%' }} >
-                        <PrimaryInput type="text" name="websites" value={formInfo && formInfo.websites} onChange={handleInputChange} />
+                <form className={styles['form-row']} >
+                    <div className={styles['two-column']}>
+                        <h3>Telephone</h3>
+                        <PrimaryInput type="text" name="telephone" placeholder="Phone Number" value={formInfo && formInfo.telephone} onChange={handleInputChange} />
                     </div>
 
-                    {/* <div style={{ width: '16%' }}><PrimaryButton>Add</PrimaryButton></div> */}
-
+                    <div className={styles['two-column']}>
+                        <h3>Email</h3>
+                        <PrimaryInput type="text" name="email" placeholder="Email Address" value={formInfo && formInfo.email} onChange={handleInputChange} />
+                    </div>
                 </form>
-                <h3>Offices</h3>
-                <form className={styles['row']}>
-                    <div style={{ width: '100%' }} >
-                        <PrimaryInput type="text" name="offices" value={formInfo && formInfo.offices} onChange={handleInputChange} />
+                <form className={styles['form-row']} >
+                    <div className={styles['two-column']}>
+                        <h3>Websites</h3>
+                        <PrimaryInput type="text" name="websites" placeholder="Website Address" value={formInfo && formInfo.websites} onChange={handleInputChange} />
                     </div>
 
-                    {/* <div style={{ width: '16%' }}><PrimaryButton>Add</PrimaryButton></div> */}
-
+                    <div className={styles['two-column']}>
+                        <h3>Offices</h3>
+                        <PrimaryInput type="text" name="offices" placeholder="Office Locations" value={formInfo && formInfo.offices} onChange={handleInputChange} />
+                    </div>
                 </form>
-                <h3>Social Media</h3>
-                <form >
-
-                    <PrimaryInput type="text" placeholder="Youtube" name="youtube" value={formInfo && formInfo.socialmedia.youtube} onChange={handleInputChange} />
-                    <PrimaryInput type="text" placeholder="LinkedIn" name="linkedin" value={formInfo && formInfo.socialmedia.linkedin} onChange={handleInputChange} />
-                    <PrimaryInput type="text" placeholder="Facebook" name="facebook" value={formInfo && formInfo.socialmedia.facebook} onChange={handleInputChange} />
-                    <PrimaryInput type="text" placeholder="Instagram" name="instagram" value={formInfo && formInfo.socialmedia.instagram} onChange={handleInputChange} />
-                    <PrimaryInput type="text" placeholder="TikTok" name="tiktok" value={formInfo && formInfo.socialmedia.tiktok} onChange={handleInputChange} />
+                <form className={styles['form-row']} >
+                    <div className={styles['column']}>
+                        <h3>Social Media</h3>
+                        <PrimaryInput type="text" placeholder="Youtube" name="youtube" value={formInfo && formInfo.socialmedia.youtube} onChange={handleInputChange} />
+                        <PrimaryInput type="text" placeholder="LinkedIn" name="linkedin" value={formInfo && formInfo.socialmedia.linkedin} onChange={handleInputChange} />
+                        <PrimaryInput type="text" placeholder="Facebook" name="facebook" value={formInfo && formInfo.socialmedia.facebook} onChange={handleInputChange} />
+                        <PrimaryInput type="text" placeholder="Instagram" name="instagram" value={formInfo && formInfo.socialmedia.instagram} onChange={handleInputChange} />
+                        <PrimaryInput type="text" placeholder="TikTok" name="tiktok" value={formInfo && formInfo.socialmedia.tiktok} onChange={handleInputChange} />
+                    </div>
                 </form>
                 <div className={styles['row']}>
                     <div style={{ width: '46%' }}>
                         <PrimaryButton onClick={(ev) => saveForm(ev)} >Save Changes</PrimaryButton>
                     </div>
                     <div style={{ width: '46%' }}>
-                    <Link to={`/profile/contacts/${props.id}`} style={{ width: '100%' }}> <SecondaryButton >Discard Changes</SecondaryButton></Link>
+                        <Link to={`/profile/contacts/${props.id}`} style={{ width: '100%' }}> <SecondaryButton >Discard Changes</SecondaryButton></Link>
                     </div>
                 </div>
 

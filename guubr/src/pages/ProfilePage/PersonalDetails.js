@@ -67,8 +67,12 @@ function PersonalDetails(props) {
             </p>
           </div>
         </div>
-        <h3>Education</h3>
-        <p>{formInfo && formInfo.education}</p>
+        <div className={styles['form-row']}>
+        <div className={styles['column']}>
+          <h3>Education</h3>
+          <p>{formInfo && formInfo.education}</p>
+        </div>
+        </div>
       </div>
       <div className={styles['button-container']}>
         <div className={styles['row']}>

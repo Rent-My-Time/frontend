@@ -14,6 +14,7 @@ function EditProfilePage() {
     return (
         <div>
             <ProfileContextProvider>
+
                 <Router>
                     <Switch>
                         <Route path="/profile/details/:id" exact ><ProfilePage /></Route>
@@ -28,7 +29,6 @@ function EditProfilePage() {
                                     <Link to={`/edit-profile/skills/${id}`} className={styles['nav-link']}><h2>Specialist<br />Fields</h2></Link>
                                     <Link to={`/edit-profile/availability/${id}`} className={styles['nav-link']}><h2>Availability</h2></Link>
                                 </div>
-                                <div className={styles['nav-selector']}></div>
                                 <div className={styles['profile-form']}>
 
                                         <Route path="/edit-profile/details/:id" exact> <EditPersonalDetails id={id} /></Route>
@@ -41,6 +41,7 @@ function EditProfilePage() {
                         </div>
                     </Switch>
                 </Router>
+
             </ProfileContextProvider>
         </div>
 

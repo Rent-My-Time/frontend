@@ -15,7 +15,7 @@ function EditPersonalDetails(props) {
     const docRef = db.collection("userProfiles").doc(`${props.id}`);
     let history = useHistory()
     useEffect(() => {
-        
+
     }, [language])
     const handleInputChange = event => {
         const target = event.target
@@ -44,7 +44,7 @@ function EditPersonalDetails(props) {
     const addLanguage = (e) => {
 
         e.preventDefault()
-        if(formInfo.languages.includes(language)){
+        if (formInfo.languages.includes(language)) {
             return alert(`${language} already exists`)
         } else {
             setFormInfo({
@@ -53,13 +53,13 @@ function EditPersonalDetails(props) {
         }
         console.log(formInfo.languages)
     }
-    const deleteLanguage =(e) =>{
-         e.preventDefault()
+    const deleteLanguage = (e) => {
+        e.preventDefault()
 
         let language = e.target.value
         formInfo.languages = formInfo.languages.filter(item => item !== language)
-        setFormInfo({    ...formInfo, language:formInfo.languages})
-        console.log(formInfo)  
+        setFormInfo({ ...formInfo, language: formInfo.languages })
+        console.log(formInfo)
     }
 
     const saveForm = (e) => {
@@ -74,23 +74,25 @@ function EditPersonalDetails(props) {
     return (
         <div className={styles['personal-details']}>
             <div className={styles['input-container']}>
-
-                <h3>Name</h3>
-                <form className={styles['form-row']}>
+                <div className={styles['form-row']}>
                     <div className={styles['two-column']}>
-                        <PrimaryInput type="text" name="firstName" value={formInfo && formInfo.fullName.firstName} onChange={handleInputChange} />
-                    </div>
+                        <h3>Name</h3>
+                        <div className={styles['form-row']}>
+                            <div className={styles['two-column']}>
+                                <PrimaryInput type="text" placeholder="First" name="firstName" value={formInfo && formInfo.fullName.firstName} onChange={handleInputChange} />
+                            </div>
 
+                            <div className={styles['two-column']}>
+                                <PrimaryInput type="text" placeholder="Last" name="lastName" value={formInfo && formInfo.fullName.lastName} onChange={handleInputChange} />
+                            </div>
+
+                        </div>
+                    </div>
                     <div className={styles['two-column']}>
-                        <PrimaryInput type="text" name="lastName" value={formInfo && formInfo.fullName.lastName} onChange={handleInputChange} />
+                        <h3>Nationality</h3>
+                        <PrimaryInput type="text" name="nationality" value={formInfo && formInfo.nationality} onChange={handleInputChange} />
                     </div>
-
-                </form>
-                <h3>Nationality</h3>
-                <form >
-                    <PrimaryInput type="text" name="nationality" value={formInfo && formInfo.nationality} onChange={handleInputChange} />
-                </form>
-
+                </div>
                 <form className={styles['form-row']}>
                     <div className={styles['two-column']}>
                         <h3>Age Group</h3>
@@ -129,7 +131,7 @@ function EditPersonalDetails(props) {
                     <div className={styles['two-column']}>
                         <h3>Gender</h3>
 
-                        <select name="gender" value={formInfo && formInfo.gender} className={styles['PrimarySelect']} onChange={handleInputChange}>
+                        <select name="gender" placeholder="Gender" value={formInfo && formInfo.gender} className={styles['PrimarySelect']} onChange={handleInputChange}>
                             <option value='not specified'>Not Specified</option>
                             <option value='male'>Male</option>
                             <option value='female'>Female</option>
@@ -141,7 +143,7 @@ function EditPersonalDetails(props) {
                     <div className={styles['two-column']}>
                         <h3>Languages</h3>
                         <div className={styles['form-row']}>
-                            <select name="languages"placeholder="Add a Language" value={language} className={styles['PrimarySelect']} onChange={handleInputChange}>
+                            <select name="languages" placeholder="Add a Language" value={language} className={styles['PrimarySelect']} onChange={handleInputChange}>
                                 <option value="English">English</option>
                                 <option value="Mandarin">Mandarin</option>
                                 <option value="Hindi">Hindi</option>
@@ -167,28 +169,32 @@ function EditPersonalDetails(props) {
                         </div>
                     </div>
                     <div className={styles['two-column']}>
-                    <h3><br></br></h3>
-                    <div className={styles['form-row']} style={{flexWrap:'wrap', alignItems: "center", border: "2px solid lightgrey", padding: "12px 16px" }}>
-                    {formInfo && formInfo.languages.map(language => <button value={language} onClick={(ev)=>deleteLanguage(ev)} className={styles['delete-lang']}>{language}</button>)}
-                    {/* <PrimaryInput value={formInfo && formInfo.languages.join(" ")} onChange={handleInputChange} /> */}
-                    </div>
+                        <h3><br></br></h3>
+                        <div className={styles['form-row']} style={{ flexWrap: 'wrap', alignItems: "center", border: "2px solid lightgrey", padding: "12px 16px" }}>
+                            {formInfo && formInfo.languages.map(language => <button value={language} onClick={(ev) => deleteLanguage(ev)} className={styles['delete-lang']}>{language}</button>)}
+                            {/* <PrimaryInput value={formInfo && formInfo.languages.join(" ")} onChange={handleInputChange} /> */}
+                        </div>
                     </div>
                 </form>
-                <h3>Location</h3>
+
 
                 <form className={styles['form-row']}>
                     <div className={styles['two-column']}>
-                        <PrimaryInput type="text" name="city" value={formInfo && formInfo.city} onChange={handleInputChange} />
+                        <h3>Location</h3>
+                        <PrimaryInput type="text" name="city" placeholder="City/State" value={formInfo && formInfo.city} onChange={handleInputChange} />
                     </div>
                     <div className={styles['two-column']}>
-                        <PrimaryInput type="text" name="country" value={formInfo && formInfo.country} onChange={handleInputChange} />
+                        <h3><br></br></h3>
+                        <PrimaryInput type="text" name="country" placeholder="Country" value={formInfo && formInfo.country} onChange={handleInputChange} />
                     </div>
                 </form>
 
-                <h3>Education</h3>
 
-                <form>
-                    <PrimaryTextArea name="education" value={formInfo && formInfo.education} onChange={handleInputChange} />
+                <form className={styles['form-row']}>
+                    <div className={styles['column']}>
+                        <h3>Education</h3>
+                        <PrimaryTextArea name="education" value={formInfo && formInfo.education} onChange={handleInputChange} />
+                    </div>
                 </form>
 
             </div>
@@ -203,7 +209,7 @@ function EditPersonalDetails(props) {
                     name={formInfo && formInfo.profileName}
                     experties={formInfo && formInfo.occupation}
                     rate={formInfo && formInfo.hourlyRate}
-                    photo={formInfo && formInfo.profileImage}
+                    photo={formInfo && formInfo.pic}
                 />
                 <div style={{ width: "100%", marginBottom: "16px" }}>
                     < PrimaryButton onClick={(ev) => saveForm(ev)}>Save Changes</ PrimaryButton>

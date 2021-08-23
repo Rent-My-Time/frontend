@@ -8,19 +8,19 @@ function SpecialistFields(props) {
     return (
         <div className={styles['specialist-fields']}>
             <div className={styles['input-container']}>
-                <div className={[styles['row'], styles["space-between"]].join(' ')}>
+                <div className={[styles['form-row'], styles["space-between"]].join(' ')}>
                     <div className={styles["three-column"]}>
                         <h3>Expert Skills</h3>
-                        {formInfo && formInfo.skills.expert.map(skill => <p>{skill}</p>)}
+                        {formInfo && formInfo.skills.expert.length !== 0 ? formInfo.skills.expert.map(skill => <p style={{padding:"8px 16px",textAlign:"center", border: "2px solid lightgrey"}}>{skill}</p>) : "No expert skills available"}
                     </div>
 
                     <div className={styles["three-column"]}>
                         <h3>Intermediate Skills</h3>
-                        {formInfo && formInfo.skills.intermediate.map(skill => <p>{skill}</p>)}
+                        {formInfo && formInfo.skills.intermediate.length !== 0 ? formInfo.skills.intermediate.map(skill => <p style={{padding:"8px 16px",textAlign:"center", border: "2px solid lightgrey"}}>{skill}</p>): "No intermediate skills available"}
                     </div>
                     <div className={styles["three-column"]}>
                         <h3>Entry Skills</h3>
-                        {formInfo && formInfo.skills.entry.map(skill => <p>{skill}</p>)}
+                        {formInfo && formInfo.skills.entry.length !== 0 ? formInfo.skills.entry.map(skill => <p style={{padding:"8px 16px",textAlign:"center", border: "2px solid lightgrey"}}>{skill}</p>) : "No entry skills available"}
                     </div>
                 </div>
             </div>

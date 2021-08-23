@@ -25,53 +25,54 @@ function PersonalDetails(props) {
           </div>
           <div className={styles['two-column']}>
             <h3>Nationality</h3>
-            <p>{formInfo && formInfo.nationality}</p>
+            <p>{formInfo && formInfo.nationality ? formInfo.nationality : `Not Specified`}</p>
           </div>
         </div>
 
         <div className={styles['form-row']}>
           <div className={styles['two-column']}>
             <h3>Age Group</h3>
-            <p>{formInfo && formInfo.ageGroup}</p>
+            <p>{formInfo && formInfo.ageGroup ? formInfo.ageGroup : `Not Specified`}</p>
           </div>
           <div className={styles['two-column']}>
             <h3>Marital Status</h3>
-            <p>{formInfo && formInfo.maritalStatus}</p>
+            <p>{formInfo && formInfo.maritalStatus ? formInfo.maritalStatus : `Not Specified`}</p>
           </div>
         </div>
         <div className={styles['form-row']}>
           <div className={styles['two-column']}>
             <h3>Children</h3>
-            <p>{formInfo && formInfo.children}</p>
+            <p>{formInfo && formInfo.children ? formInfo.children : `Not Specified`}</p>
           </div>
           <div className={styles['two-column']}>
             <h3>Gender</h3>
-            <p>{formInfo && formInfo.gender}</p>
+            <p>{formInfo && formInfo.gender ? formInfo.gender : `Not Specified`}</p>
           </div>
         </div>
         <div className={styles['form-row']}>
           <div className={styles['two-column']}>
             <h3>Languages</h3>
             <div className={styles['row']}>
-              {formInfo &&
+
+              {formInfo && formInfo.languages.length !== 0 ?
                 formInfo.languages.map((language, index) => (
                   <p key={index}>{language}</p>
-                ))}
+                )) : <p>{`Not Specified`}</p>}
             </div>
           </div>
 
           <div className={styles['two-column']}>
             <h3>Location</h3>
             <p>
-              {formInfo && formInfo.city}, {formInfo && formInfo.country}
+              { formInfo && formInfo.city && formInfo.country ? `${formInfo.city}, ${formInfo.country}` : "Not Specified"}
             </p>
           </div>
         </div>
         <div className={styles['form-row']}>
-        <div className={styles['column']}>
-          <h3>Education</h3>
-          <p>{formInfo && formInfo.education}</p>
-        </div>
+          <div className={styles['column']}>
+            <h3>Education</h3>
+            <p>{formInfo && formInfo.education ? formInfo.education : `Not Specified`}</p>
+          </div>
         </div>
       </div>
       <div className={styles['button-container']}>

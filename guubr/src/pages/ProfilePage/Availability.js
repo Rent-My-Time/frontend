@@ -1,9 +1,9 @@
 import { useContext } from "react"
-import {ProfileContext}  from "../../ProfileContext"
+import { ProfileContext } from "../../ProfileContext"
 import * as styles from "./ProfilePage.module.css"
 
 function Availability(props) {
-    const [formInfo]  = useContext(ProfileContext)
+    const [formInfo] = useContext(ProfileContext)
     const boolToString = value => {
         let response = ""
         // console.log(value)
@@ -19,8 +19,8 @@ function Availability(props) {
     return (
         <div className={styles['availability']}>
             <div className={styles['input-container']}>
-                <h2>Hiring Options</h2>
-                <div className={[styles['row'], styles["space-between"]].join(' ')}>
+
+                <div className={[styles['form-row'], styles["space-between"]].join(' ')}>
                     <div className={styles['two-column']}>
                         <h3>Level of Expertise</h3>
                         <div className={styles['form-row']}>
@@ -34,7 +34,7 @@ function Availability(props) {
                         <p>${formInfo && formInfo.hourlyRate}/hr</p>
                     </div>
                 </div>
-                <div className={[styles['row'], styles["space-between"]].join(' ')}>
+                <div className={[styles['form-row'], styles["space-between"]].join(' ')}>
                     <div className={styles['two-column']}>
                         <h3>Networking</h3>
                         <p>{boolToString(formInfo && formInfo.networking)}</p>
@@ -44,14 +44,21 @@ function Availability(props) {
                         <p>{boolToString(formInfo && formInfo.friends)}</p>
                     </div>
                 </div>
+                <div className={[styles['form-row'], styles["space-between"]].join(' ')}>
+                    <div className={styles['two-column']}>
+                        <h3>Other</h3>
+                        <p>{(formInfo && formInfo.other ? formInfo.other : `Not Specified`)}</p>
+                    </div>
 
-                <h3>Other</h3>
-                <p>{(formInfo && formInfo.other)}</p>
-                <h2>Contact Methods</h2>
-                <div className={styles['form-row']}  style={{ marginTop:"16px" }}>
-                    <p><span className={styles["bold-font"]}>Phone:</span>{boolToString(formInfo && formInfo.contactMethods.phone)}</p>
-                    <p><span className={styles["bold-font"]}>Email:</span> {boolToString(formInfo && formInfo.contactMethods.email)}</p>
-                    <p><span className={styles["bold-font"]}>Zoom:</span> {boolToString(formInfo && formInfo.contactMethods.zoom)}</p>
+                    <div className={styles['two-column']}>
+                        <h3>Contact Methods</h3>
+                        <div className={styles['form-row']}>
+                            <p><span className={styles["bold-font"]}>Phone:</span>{boolToString(formInfo && formInfo.contactMethods.phone)}</p>
+                            <p><span className={styles["bold-font"]}>Email:</span> {boolToString(formInfo && formInfo.contactMethods.email)}</p>
+                            <p><span className={styles["bold-font"]}>Zoom:</span> {boolToString(formInfo && formInfo.contactMethods.zoom)}</p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 

@@ -8,9 +8,11 @@ import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
 import IconFooter from '../components/IconFooter';
 import { UserListContext } from '../UserListContext';
+import { MyContext } from "../Context";
 
 function Home() {
   const [userList, setUserList] = useContext(UserListContext);
+  const { user } = useContext(MyContext);
   const [searchTerm, setSearchTerm] = useState('');
   const [expand, setExpand] = useState(false);
 
@@ -50,26 +52,26 @@ function Home() {
       </More>
 
       <Discover>Discover Diverse Expertise</Discover>
-      {userList && userList.map(user => console.log(user.occupation))}
+      {userList && userList.map(userItem => console.log(userItem.occupation))}
       
       <Profiles>
         {userList && userList
           .filter(
-            (user) =>
-              user.occupation
+            (userItem) =>
+              userItem.occupation
               .toLowerCase()
               .includes(searchTerm && searchTerm.toLowerCase().trim()) 
                 
-          ).map((user) =>  <Link
-            to={`/profile/details/${user.id}`}
-            key={`${user.id}`}
+          ).map((userItem) =>  <Link
+            to={ userItem.id !== user.email ? `/profile/details/${userItem.id}` : `/edit-profile/details/${userItem.id}`}
+            key={`${userItem.id}`}
             style={{ textDecoration: 'none' }}>
             <Profile
-              key={`${user.id}`}
-              name={`${user.fullName.firstName}`}
-              experties={user.occupation}
-              rate={user.hourlyRate}
-              photo={user.pic}
+              key={`${userItem.id}`}
+              name={`${userItem.fullName.firstName}`}
+              experties={userItem.occupation}
+              rate={userItem.hourlyRate}
+              photo={userItem.pic}
             /></Link>
             )}
       </Profiles>

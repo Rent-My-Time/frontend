@@ -47,7 +47,7 @@ function EditAvailability(props) {
         setFormInfo(formInfo)
         console.log(formInfo, " SAVE FORM")
         docRef.set(formInfo)
-        history.push(`/profile/availability/${props.id}`)
+        history.push(`/edit-profile/details/${props.id}`)
     }
     //console.log(formInfo, "FORM") 
     return (
@@ -130,7 +130,7 @@ function EditAvailability(props) {
 
                     </div>
                     <div style={{ width: '46%' }}>
-                    <Link to={`/profile/availability/${props.id}`} style={{ width: '100%' }}><SecondaryButton >Discard Changes</SecondaryButton></Link>
+                    <Link to={`/edit-profile/details/${props.id}`} style={{ width: '100%' }}><SecondaryButton >Discard Changes</SecondaryButton></Link>
                     </div>
                 </div>
             </div>

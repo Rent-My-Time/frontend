@@ -24,7 +24,7 @@ function Header() {
         <div>
           <h3>{`Welcome ${user.displayName}`}</h3>
 
-          <Link to={`/profile/details/${user.email}`} style={{ textDecoration: 'none' }}>
+          <Link to={`/edit-profile/details/${user.email}`} style={{ textDecoration: 'none' }}>
             <IconUser className="iconLogo" />
           </Link>
           <h2 onClick={(ev) => logOut(ev)}>Log Out</h2>

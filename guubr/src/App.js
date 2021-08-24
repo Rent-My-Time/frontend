@@ -8,12 +8,12 @@ import AccountBox from "./pages/userAccountBox/index";
 import FaqPage from "./pages/FaqPage/FaqPage";
 import BookingPage from "./pages/BookingPage";
 import PaymentPage from "./pages/PaymentPage/PaymentPage";
-import EditProfilePage from "./pages/ProfilePage/EditProfilePage";
+
 import LoginGooglePage from "./pages/LoginGooglePage";
 import AddUserPage from "./pages/AddUserPage";
 import UserListContextProvider from "./UserListContext";
 import BookingContextProvider from './BookingContext';
-import Header from "./components/Header";
+
 
 function App() {
   return (
@@ -34,18 +34,18 @@ function App() {
 
 
             {/* render master component EditProfilePage with its children */}
-            <Route exact path="/edit-profile/details/:id" component={EditProfilePage} />
-            <Route exact path="/edit-profile/contacts/:id" component={EditProfilePage} />
-            <Route exact path="/edit-profile/skills/:id" component={EditProfilePage} />
-            <Route exact path="/edit-profile/availability/:id" component={EditProfilePage} />
-            <Route path="/edit-profile/" component={EditProfilePage} />
+            <Route exact path="/edit-profile/details/:id" component={ProfilePage} />
+            <Route exact path="/edit-profile/contacts/:id" component={ProfilePage} />
+            <Route exact path="/edit-profile/skills/:id" component={ProfilePage} />
+            <Route exact path="/edit-profile/availability/:id" component={ProfilePage} />
+            <Route exact path="/edit-profile/" component={ProfilePage} />
 
             {/* render master component ProfilePage with its children */}
             <Route exact path="/profile/details/:id" component={ProfilePage} />
             <Route exact path="/profile/contacts/:id" component={ProfilePage} />
             <Route exact path="/profile/skills/:id" component={ProfilePage} />
             <Route exact path="/profile/availability/:id" component={ProfilePage} />
-            <Route path="/profile/" component={ProfilePage} />
+            <Route exact path="/profile/" component={ProfilePage} />
           </Switch>
         </Router>
        </BookingContextProvider>

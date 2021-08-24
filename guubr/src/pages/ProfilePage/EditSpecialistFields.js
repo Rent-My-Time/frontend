@@ -58,7 +58,7 @@ function EditSpecialistFields(props) {
         setFormInfo(formInfo)
         console.log(formInfo)
         docRef.set(formInfo)
-        history.push(`/profile/skills/${props.id}`)
+        history.push(`/edit-profile/details/${props.id}`)
     }
 
     const handleKeyPress = e => {
@@ -182,7 +182,7 @@ function EditSpecialistFields(props) {
                     <PrimaryButton style={{ width: "12%" }} type="submit" onClick={submitSkill}>Submit</PrimaryButton>
                     <div className={styles['column']} style={{ width: "20%" }}>
                         < PrimaryButton onClick={(ev) => saveForm(ev)} style={{ marginBottom: "16px" }}>Save Changes</ PrimaryButton>
-                        <Link to={`/profile/skills/${props.id}`} style={{ width: '100%' }}><SecondaryButton>Discard Changes</SecondaryButton></Link>
+                        <Link to={`/edit-profile/details/${props.id}`} style={{ width: '100%' }}><SecondaryButton>Discard Changes</SecondaryButton></Link>
                     </div>
                 </div>
             </div>

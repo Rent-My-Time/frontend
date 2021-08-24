@@ -66,7 +66,7 @@ function EditPersonalDetails(props) {
         e.preventDefault();
         setFormInfo(formInfo)
         docRef.set(formInfo)
-        history.push(`/profile/details/${props.id}`)
+        history.push(`/edit-profile/details/${props.id}`)
         console.log(formInfo)
 
     }
@@ -214,7 +214,7 @@ function EditPersonalDetails(props) {
                 <div style={{ width: "100%", marginBottom: "16px" }}>
                     < PrimaryButton onClick={(ev) => saveForm(ev)}>Save Changes</ PrimaryButton>
                 </div>
-                <Link to={`/profile/details/${props.id}`} style={{ width: '100%' }}><SecondaryButton>Discard Changes</SecondaryButton></Link>
+                <Link to={`/edit-profile/details/${props.id}`} style={{ width: '100%' }}><SecondaryButton>Discard Changes</SecondaryButton></Link>
 
 
             </div>

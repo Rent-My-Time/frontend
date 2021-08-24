@@ -88,14 +88,14 @@ function PersonalDetails(props) {
           rate={formInfo && formInfo.hourlyRate}
           photo={formInfo && formInfo.pic}
         />
-        {(user && user.email) === props.id ? (
+        {/* {(user && user.email) === props.id ? (
           <Link
             to={`/edit-profile/details/${props.id}`}
             style={{ width: '100%', marginBottom: '16px' }}
           >
             <SecondaryButton>Edit Profile</SecondaryButton>
           </Link>
-        ) : null}
+        ) : null} */}
 
         <Link to={`/book/${props.id}`} style={{ width: '100%' }}>
           <PrimaryButton>Book</PrimaryButton>

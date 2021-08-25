@@ -19,7 +19,7 @@ function Home() {
   const skillsList = ['Model', 'Actor', 'Bartender', 'Security', 'Nanny', 'App Developer',
                       'Web Designer', 'Personal Assistant', 'Self Development', 
                       'Photographer', 'Makeup Artist','Security Systems', 'Handyman', 
-                      'Analytics', 'Marketing', 'Writer', 'Designer'];
+                      'Analytics', 'Marketing', 'Writer', 'Designer', 'Film Maker', 'Coach', 'Tax Consultant', 'Web Developer'];
   const highlightedSkills = ['Model', 'Actor', 'Bartender', 'Security', 'Nanny', 'App Developer',
                             'Web Designer', 'Personal Assistant', 'Self Development'];
 
@@ -34,11 +34,11 @@ function Home() {
       <div>
         {expand ? (
           <Skills>
-           {skillsList.map((skill) => <Skill>{skill}</Skill>) }
+           {skillsList.map((skill) => <Skill onClick={() => setSearchTerm(skill)}>{skill}</Skill>) }
           </Skills>
         ) : (
           <Skills>
-            {highlightedSkills.map((skill) => <Skill>{skill}</Skill>) }
+            {highlightedSkills.map((skill) => <Skill onClick={() => setSearchTerm(skill)}>{skill}</Skill>) }
           </Skills>
         )}
       </div>
@@ -63,7 +63,7 @@ function Home() {
               .includes(searchTerm && searchTerm.toLowerCase().trim()) 
                 
           ).map((userItem) =>  <Link
-            to={ userItem.id !== user.email ? `/profile/details/${userItem.id}` : `/edit-profile/details/${userItem.id}`}
+            to={ userItem.id !== (user && user.email)  ? `/profile/details/${userItem.id}` : `/edit-profile/details/${userItem.id}`}
             key={`${userItem.id}`}
             style={{ textDecoration: 'none' }}>
             <Profile

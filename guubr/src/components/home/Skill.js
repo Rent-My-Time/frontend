@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-function Skill({ children }) {
-  return <Button>{children}</Button>;
+function Skill({ children, onClick }) {
+  return <Button onClick={onClick}>{children}</Button>;
 }
 
 const Button = styled.button`

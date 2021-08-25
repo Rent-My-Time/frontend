@@ -138,7 +138,7 @@ function ProfilePage() {
           </div>
         </Switch>
       </Router>
-      <Footer />
+      <Footer/>
       <IconFooter />
     </ProfileContextProvider>
   );

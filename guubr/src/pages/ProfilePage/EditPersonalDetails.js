@@ -180,17 +180,25 @@ function EditPersonalDetails(props) {
 
                 <form className={styles['form-row']}>
                     <div className={styles['two-column']}>
-                        <h3>Location</h3>
-                        <PrimaryInput type="text" name="city" placeholder="City/State" value={formInfo && formInfo.city} onChange={handleInputChange} />
+                        <div className={styles['form-row']}>
+                            <div className={styles['two-column']}>
+                                <h3>Location</h3>
+                                <PrimaryInput type="text" name="city" placeholder="City/State" value={formInfo && formInfo.city} onChange={handleInputChange} />
+                            </div>
+                            <div className={styles['two-column']}>
+                                <h3><br></br></h3>
+                                <PrimaryInput type="text" name="country" placeholder="Country" value={formInfo && formInfo.country} onChange={handleInputChange} />
+                            </div>
+                        </div>
                     </div>
                     <div className={styles['two-column']}>
-                        <h3><br></br></h3>
-                        <PrimaryInput type="text" name="country" placeholder="Country" value={formInfo && formInfo.country} onChange={handleInputChange} />
+                        <h3>occupation</h3>
+                        <PrimaryInput name="occupation" value={formInfo && formInfo.occupation} onChange={handleInputChange} />
                     </div>
                 </form>
-
-
                 <form className={styles['form-row']}>
+
+
                     <div className={styles['column']}>
                         <h3>Education</h3>
                         <PrimaryTextArea name="education" value={formInfo && formInfo.education} onChange={handleInputChange} />

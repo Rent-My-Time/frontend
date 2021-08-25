@@ -1,17 +1,19 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import PrimaryButton from "./reusableComponents/PrimaryButton.js";
 import { MyContext } from "../Context.js";
 import firebase from "firebase";
 import { ReactComponent as IconUser } from "../assets/user_circle_male_avatar_account_icon.svg";
 function Header() {
   const { user } = useContext(MyContext)
+  let history = useHistory()
   console.log(user)
   const logOut = (e) => {
     e.preventDefault()
     firebase.auth().signOut().then(() => {
       // Sign-out successful.
+      history.push('/')
     }).catch((error) => {
       // An error happened.
     });

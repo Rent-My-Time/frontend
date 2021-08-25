@@ -124,7 +124,7 @@ function EditAvailability(props) {
 
 
                 </div>
-                <div className={styles['row']} style={{ justifyContent: "space-between", marginTop: "64px" }}>
+                <div className={styles['row']} style={{ justifyContent: "space-between", marginTop: "36px" }}>
                     <div style={{ width: '46%' }}>
                         <PrimaryButton onClick={(ev) => saveForm(ev)} >Save Changes</PrimaryButton>
 

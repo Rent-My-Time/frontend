@@ -35,27 +35,27 @@ function ContactDetails(props) {
                 <div className={styles['form-row']}>
                     <div className={styles['two-column']}>
                         <h3>Facebook</h3>
-                        <p>{formInfo.socialmedia.facebook !== "" ? formInfo.socialmedia.facebook : `Not Specified`}</p>
+                        <p>{formInfo && formInfo.socialmedia.facebook !== "" ? formInfo.socialmedia.facebook : `Not Specified`}</p>
                     </div>
                     <div className={styles['two-column']}>
                         <h3>Instagram</h3>
-                        <p>{formInfo.socialmedia.instagram !== "" ? formInfo.socialmedia.instagram : `Not Specified`}</p>
+                        <p>{formInfo && formInfo.socialmedia.instagram !== "" ? formInfo.socialmedia.instagram : `Not Specified`}</p>
                     </div>
                 </div>
                 <div className={styles['form-row']}>
                     <div className={styles['two-column']}>
                         <h3>LinkedIn</h3>
-                        <p>{formInfo.socialmedia.linkedin !== "" ? formInfo.socialmedia.linkedin : `Not Specified`}</p>
+                        <p>{formInfo && formInfo.socialmedia.linkedin !== "" ? formInfo.socialmedia.linkedin : `Not Specified`}</p>
                     </div>
                     <div className={styles['two-column']}>
                         <h3>TikTok</h3>
-                        <p>{formInfo.socialmedia.tiktok !== "" ? formInfo.socialmedia.tiktok : `Not Specified`}</p>
+                        <p>{formInfo && formInfo.socialmedia.tiktok !== "" ? formInfo.socialmedia.tiktok : `Not Specified`}</p>
                     </div>
                 </div>
                 <div className={styles['form-row']}>
                     <div className={styles['two-column']}>
                         <h3>Youtube</h3>
-                        <p>{formInfo.socialmedia.youtube !== "" ? formInfo.socialmedia.youtube : `Not Specified`}</p>
+                        <p>{formInfo && formInfo.socialmedia.youtube !== "" ? formInfo.socialmedia.youtube : `Not Specified`}</p>
                     </div>
                     <div className={styles['two-column']}>
                         <h3>Websites</h3>

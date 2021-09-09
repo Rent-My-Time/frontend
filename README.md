@@ -57,7 +57,7 @@
 ## About The Project
 
 ![image](https://user-images.githubusercontent.com/77296586/132732896-8829bd82-820c-41f7-bedc-9112237a3503.png)
-
+Guubr connects users by making booking requests based skills and profiles. Secondarily, users can update their profile and accept bookings and receive payments based on their hourly rates.
 ### Built With
 
 * [React](https://reactjs.org/)
@@ -93,6 +93,12 @@ To get a local copy up and running follow these simple steps.
 
 <!-- ROADMAP -->
 ## Roadmap
+
+**Future implementations:**
+* Messaging system: [Peerjs](https://peerjs.com/)
+* Third-Party payments: [Stripe](https://stripe.com/docs/api)
+* Seamless centralized state: [Redux](https://redux.js.org/)
+
 
 See the [open issues](https://github.com/Rent-My-Time/frontend/issues) for a list of proposed features (and known issues).
 

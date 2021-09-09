@@ -15,7 +15,7 @@
   <h3 align="center">Rent-My-Time</h3>
 
   <p align="center">
-    project_description
+    Guubr connects users to skilled individuals, personalities, and professionals alike.
     <br />
     <a href="https://github.com/Rent-My-Time/frontend"><strong>Explore the docs »</strong></a>
     <br />

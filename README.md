@@ -1,70 +1,137 @@
-# Getting Started with Create React App
+<!-- PROJECT SHIELDS -->
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://github.com/Rent-My-Time/frontend">
+    <img src="guubr/src/assets/GuuBr.svg" alt="Logo" width="150" height="150">
+  </a>
 
-In the project directory, you can run:
+  <h3 align="center">Rent-My-Time</h3>
 
-### `npm start`
+  <p align="center">
+    project_description
+    <br />
+    <a href="https://github.com/Rent-My-Time/frontend"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/Rent-My-Time/frontend">View Demo</a>
+    ·
+    <a href="https://github.com/Rent-My-Time/frontend/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/Rent-My-Time/frontend/issues">Request Feature</a>
+  </p>
+</p>
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+  </ol>
+<!-- ABOUT THE PROJECT -->
+## About The Project
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+[![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Here's a blank template to get started:
+**To avoid retyping too much info. Do a search and replace with your text editor for the following:**
+`github_username`, `repo_name`, `twitter_handle`, `email`, `project_title`, `project_description`
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Built With
 
-### `npm run build`
+* []()
+* []()
+* []()
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<!-- GETTING STARTED -->
+## Getting Started
 
-### `npm run eject`
+To get a local copy up and running follow these simple steps.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Prerequisites
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* npm
+  ```sh
+  npm install npm@latest -g
+  ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Installation
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+1. Clone the repo
+   ```sh
+   git clone https://github.com/Rent-My-Time/frontend.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<!-- USAGE EXAMPLES -->
+## Usage
 
-### Code Splitting
+Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+_For more examples, please refer to the [Documentation](https://example.com)_
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+<!-- ROADMAP -->
+## Roadmap
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+See the [open issues](https://github.com/github_username/repo_name/issues) for a list of proposed features (and known issues).
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+<!-- CONTRIBUTING -->
+## Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-### `npm run build` fails to minify
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+<!-- LICENSE -->
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+<!-- MARKDOWN LINKS & IMAGES -->
+[contributors-shield]: https://img.shields.io/github/contributors/Rent-My-Time/frontend.svg?style=for-the-badge
+[contributors-url]: https://github.com/Rent-My-Time/frontend/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/Rent-My-Time/frontend.svg?style=for-the-badge
+[forks-url]: https://github.com/Rent-My-Time/frontend/network/members
+[issues-shield]: https://img.shields.io/github/issues/Rent-My-Time/frontend.svg?style=for-the-badge
+[issues-url]: https://img.shields.io/github/issues/Rent-My-Time/frontend
+[license-shield]: https://img.shields.io/github/license/Rent-My-Time/frontend.svg?style=for-the-badge
+[license-url]: https://img.shields.io/github/license/Rent-My-Time/frontend
